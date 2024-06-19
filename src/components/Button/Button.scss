@@ -1,0 +1,17 @@
+@import '../../styles/mixins';
+
+.button {
+  @include button-styles(#e74c3c, #fff); // Custom button styles
+}
+
+.centered-content {
+  @include flex-center; // Centering content
+}
+
+@media screen and (max-width: 599px) {
+  .responsive-element {
+    @include respond-to('mobile') {
+      font-size: 14px;
+    }
+  }
+}
