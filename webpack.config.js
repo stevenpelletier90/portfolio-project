@@ -4,45 +4,45 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.jsx', // Ensure this points to your entry file
+  entry: './src/index.jsx',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '', // Ensure proper handling of paths
+    publicPath: '/',
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // Handle both JS and JSX files
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
       {
-        test: /\.scss$/, // Handle SCSS files
+        test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.css$/, // Handle CSS files
+        test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/, // Handle asset files
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'], // Resolve JS and JSX extensions
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Use your HTML template
+      template: './public/index.html',
       inject: 'body',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -50,19 +50,24 @@ module.exports = {
           from: 'public',
           to: '',
           globOptions: {
-            ignore: ['**/index.html'], // Ignore index.html to avoid conflict
+            ignore: ['**/index.html'],
           },
         },
       ],
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'), // Serve static files from 'dist'
+      directory: path.join(__dirname, 'dist'),
     },
     compress: true,
     port: 3000,
-    historyApiFallback: true, // Handle client-side routing fallback
+    historyApiFallback: true,
   },
-  mode: 'development', // Set mode to development
+  mode: 'development',
 };
