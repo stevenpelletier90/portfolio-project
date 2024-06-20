@@ -23,6 +23,10 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
+        test: /\.css$/, // Handle CSS files
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/, // Handle asset files
         type: 'asset/resource',
       },
@@ -50,7 +54,7 @@ module.exports = {
           },
         },
       ],
-    }), // Add this block
+    }),
   ],
   devServer: {
     static: {
