@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import images from '../../assets/images'; // Import images context
+import images from '../../assets/images/images'; // Import images context
 import './Header.scss';
 
 const Header = () => {
