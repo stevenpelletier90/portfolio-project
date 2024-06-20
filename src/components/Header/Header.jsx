@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import images from '../../assets/images'; // Import images context
 import './Header.scss';
 
 const Header = () => {
@@ -10,7 +11,7 @@ const Header = () => {
     <Navbar bg='dark' variant='dark' expand='lg' className='header'>
       <div className='container-fluid'>
         <Navbar.Brand as={Link} to='/'>
-          <img src='/path/to/your/logo.png' alt='Logo' height='50' />
+          <img src={images['logo.png']} alt='Logo' height='50' />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
