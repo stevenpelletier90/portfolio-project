@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { ImagesContext } from '../../contexts/ImagesContext';
 import './Header.scss';
+import MobileMenu from '../MobileMenu/MobileMenu'; // Adjusted the import path
 
 const Header = () => {
   const images = useContext(ImagesContext);
@@ -43,6 +44,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faLinkedin} size='2x' />
           </a>
         </div>
+        <MobileMenu /> {/* Include the MobileMenu component */}
       </div>
     </header>
   );

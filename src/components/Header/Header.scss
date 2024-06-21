@@ -1,53 +1,52 @@
 .header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 10px 0;
+  background-color: #000; /* Black background */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Adjust as needed for height */
 
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1140px;
+    max-width: 1200px; /* Adjust this if needed */
     margin: 0 auto;
-    padding: 0 20px;
   }
 
-  .logo {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    .custom-logo {
-      height: 50px; // Adjust size as needed
-    }
+  .logo img {
+    max-width: 100px; /* Adjust logo size as needed */
   }
 
   .nav-links {
-    flex: 2;
     display: flex;
+    gap: 20px;
     justify-content: center;
+    flex: 1; /* This centers the nav links */
 
     a {
-      margin: 0 15px;
+      color: white; /* White link color */
       text-decoration: none;
-      color: #333;
-      font-weight: 500;
+      font-size: 16px; /* Adjust font size as needed */
       &:hover {
-        color: #007bff;
+        color: #f39c12; /* Hover color */
       }
     }
   }
 
   .social-media-icons {
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    gap: 15px;
 
     a {
-      margin: 0 10px;
-      color: #333;
+      color: white; /* White icon color */
       &:hover {
-        color: #007bff;
+        color: #f39c12; /* Hover color */
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links,
+    .social-media-icons {
+      display: none; /* Hide nav links and social icons on mobile */
     }
   }
 }

@@ -1,25 +1,46 @@
-// src/pages/Home/Home.scss
 .home {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #121212;
-  color: #fff;
-
-  .content {
+  .jumbotron {
+    position: relative;
+    height: 400px;
+    background: url('../../assets/images/caribbean.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
 
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.1em;
+    .jumbotron-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
     }
 
-    p {
-      font-size: 1.5rem;
+    .jumbotron-text {
+      position: relative;
+      z-index: 1;
+
+      h1 {
+        font-size: 3rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .latest-work {
+    text-align: center;
+    padding: 20px;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
   }
 }
