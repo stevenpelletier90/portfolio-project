@@ -1,12 +1,15 @@
-import React from 'react';
+// src/components/Header/Header.jsx
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import images from '../../assets/images/images'; // Import images context
+import { ImagesContext } from '../../contexts/ImagesContext';
 import './Header.scss';
 
 const Header = () => {
+  const images = useContext(ImagesContext);
+
   return (
     <Navbar bg='dark' variant='dark' expand='lg' className='header'>
       <div className='container-fluid'>

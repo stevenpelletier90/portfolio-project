@@ -1,4 +1,4 @@
-// src/assets/images.js
+// src/assets/images/images.js
 function importAll(r) {
   let images = {};
   r.keys().forEach((item, index) => {

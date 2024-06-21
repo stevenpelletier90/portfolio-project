@@ -1,4 +1,6 @@
+// src/components/Footer/Footer.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -20,24 +22,24 @@ const Footer = () => {
             <h5>Quick Links</h5>
             <ul className='list-unstyled'>
               <li>
-                <a href='#home' className='text-white'>
+                <Link to='/' className='text-white'>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#about' className='text-white'>
+                <Link to='/about' className='text-white'>
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#projects' className='text-white'>
-                  Projects
-                </a>
+                <Link to='/portfolio' className='text-white'>
+                  Portfolio
+                </Link>
               </li>
               <li>
-                <a href='#contact' className='text-white'>
+                <Link to='/contact' className='text-white'>
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </Col>
