@@ -1,29 +1,52 @@
 .header {
-  .navbar {
-    padding: 0 20px;
-    background-color: #333;
-    color: #fff;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
 
-    .navbar-brand img {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    .custom-logo {
       height: 50px; // Adjust size as needed
     }
+  }
 
-    .navbar-nav .nav-link {
-      color: #fff;
+  .nav-links {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
-
+      color: #333;
+      font-weight: 500;
       &:hover {
-        text-decoration: underline;
+        color: #007bff;
       }
     }
+  }
 
-    .navbar-nav .social-media .nav-link {
-      font-size: 24px;
-      margin-left: 10px;
+  .social-media-icons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 
+    a {
+      margin: 0 10px;
+      color: #333;
       &:hover {
-        color: #ddd;
+        color: #007bff;
       }
     }
   }

@@ -1,9 +1,7 @@
-// src/components/Header/Header.jsx
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { ImagesContext } from '../../contexts/ImagesContext';
 import './Header.scss';
 
@@ -11,38 +9,42 @@ const Header = () => {
   const images = useContext(ImagesContext);
 
   return (
-    <Navbar bg='dark' variant='dark' expand='lg' className='header'>
-      <div className='container-fluid'>
-        <Navbar.Brand as={Link} to='/'>
-          <img src={images['logo.png']} alt='Logo' height='50' />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='me-auto mb-2 mb-lg-0'>
-            <Nav.Link as={Link} to='/about'>
-              About
-            </Nav.Link>
-            <Nav.Link as={Link} to='/portfolio'>
-              Portfolio
-            </Nav.Link>
-            <Nav.Link as={Link} to='/blog'>
-              Blog
-            </Nav.Link>
-            <Nav.Link as={Link} to='/contact'>
-              Contact
-            </Nav.Link>
-          </Nav>
-          <Nav>
-            <Nav.Link href='https://www.linkedin.com' target='_blank' rel='noopener noreferrer'>
-              <FontAwesomeIcon icon={faLinkedin} />
-            </Nav.Link>
-            <Nav.Link href='https://www.instagram.com' target='_blank' rel='noopener noreferrer'>
-              <FontAwesomeIcon icon={faInstagram} />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+    <header className='header'>
+      <div className='header-container'>
+        <div className='logo'>
+          <Link to='/'>
+            <img src={images['logo.png']} alt='Logo of Steven Pelletier' className='custom-logo' />
+          </Link>
+        </div>
+        <nav className='nav-links' aria-label='Main navigation'>
+          <Link to='/about'>About</Link>
+          <Link to='/portfolio'>Portfolio</Link>
+          <Link to='/blog'>Blog</Link>
+          <Link to='/contact'>Contact</Link>
+        </nav>
+        <div className='social-media-icons'>
+          <a href='https://github.com/stevenpelletier90' target='_blank' rel='noopener noreferrer' aria-label='GitHub'>
+            <FontAwesomeIcon icon={faGithub} size='2x' />
+          </a>
+          <a
+            href='https://www.instagram.com/steverino__/'
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label='Instagram'
+          >
+            <FontAwesomeIcon icon={faInstagram} size='2x' />
+          </a>
+          <a
+            href='https://www.linkedin.com/in/stevendpelletier/'
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label='LinkedIn'
+          >
+            <FontAwesomeIcon icon={faLinkedin} size='2x' />
+          </a>
+        </div>
       </div>
-    </Navbar>
+    </header>
   );
 };
 
