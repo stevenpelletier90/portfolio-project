@@ -1,113 +1,191 @@
 .header {
-  background-color: #000;
+  background-color: #000000;
   color: white;
-  padding: 10px 20px;
   position: relative;
   z-index: 1000;
 
   .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
-  .logo img {
-    max-width: 100px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex: 1;
-
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      &:hover {
-        color: #f39c12;
-      }
+  .logo {
+    .logo-image {
+      height: 40px;
     }
   }
 
-  .social-media-icons,
-  .social-icons {
-    display: flex;
-    gap: 15px;
-
-    a {
-      color: white;
-      &:hover {
-        color: #f39c12;
-      }
-    }
-  }
-
-  /* Burger menu specific styles */
-  .bm-menu {
-    background: #373a47;
-    padding-top: 2.5em;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .menu-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: calc(100vh - 60px); // Adjust if needed to account for any padding
-  }
-
-  .mobile-nav-links {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .menu-item {
-    color: #b8b7ad;
+  .nav-link {
+    color: white;
     text-decoration: none;
-    font-size: 1.15em;
-    display: block;
-    padding: 10px 0;
-    text-align: center;
-
+    margin-right: 1rem;
     &:hover {
-      color: #ffffff;
+      text-decoration: underline;
     }
   }
 
   .social-icons {
-    margin-top: 20px;
-    justify-content: center;
+    display: flex;
+    gap: 1rem;
 
     a {
-      font-size: 24px;
-      margin: 0 10px;
+      color: white;
+      font-size: 1.2rem;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
-  @media (max-width: 768px) {
-    .nav-links,
-    .social-media-icons {
-      display: none;
+  .mobile-menu {
+    .menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+
+      .hamburger-icon {
+        position: relative;
+        width: 24px;
+        height: 2px;
+        background-color: white;
+        transition: background-color 0.2s ease;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 24px;
+          height: 2px;
+          background-color: white;
+          transition: transform 0.2s ease;
+        }
+
+        &::before {
+          top: -6px;
+        }
+
+        &::after {
+          bottom: -6px;
+        }
+      }
+
+      &.open {
+        .hamburger-icon {
+          background-color: transparent;
+
+          &::before {
+            transform: translateY(6px) rotate(45deg);
+          }
+
+          &::after {
+            transform: translateY(-6px) rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: #000000;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+
+    .dropdown-content {
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    &.open {
+      max-height: 300px; // Adjust based on your content
+      transition: max-height 0.3s ease-in;
+
+      .dropdown-content {
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+      }
+    }
+
+    .nav-link {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+      justify-content: center;
+    }
+  }
+
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    .nav-links {
+      margin-right: 2rem;
     }
   }
 }
 
-/* Ensure the burger menu doesn't create a scrollbar */
-.bm-menu-wrap {
-  top: 0;
-  left: 0;
-  width: 100% !important; // Force full width
-  height: 100% !important; // Force full height
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-.bm-overlay {
-  top: 0;
-  left: 0;
+@media (max-width: 768px) {
+  .header {
+    .header-container {
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      margin-right: auto;
+    }
+
+    .mobile-menu {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .header {
+    .header-container {
+      justify-content: space-between;
+    }
+
+    .logo {
+      flex: 0 0 auto;
+    }
+
+    .desktop-menu {
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+  }
 }

@@ -23,7 +23,6 @@
     "framer-motion": "^11.2.11",
     "gsap": "^3.12.5",
     "react": "^18.3.1",
-    "react-burger-menu": "^3.0.9",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1"
   },
