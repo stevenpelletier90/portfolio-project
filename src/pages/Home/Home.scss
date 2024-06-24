@@ -1,7 +1,7 @@
 .home {
   .jumbotron {
     position: relative;
-    height: 400px;
+    height: 100vh;
     background: url('../../assets/images/caribbean.png') no-repeat center center;
     background-size: cover;
     display: flex;
@@ -24,23 +24,53 @@
       z-index: 1;
 
       h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        span {
+          display: inline-block;
+          margin: 0 0.1em;
+        }
       }
 
       p {
-        font-size: 1.5rem;
-        margin: 0;
+        font-size: 1.8rem;
+        margin: 1rem 0 0;
       }
     }
   }
 
-  .latest-work {
-    text-align: center;
-    padding: 20px;
+  .about,
+  .latest-work,
+  .recent-blogs {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+
     h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
     }
+  }
+
+  .about {
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .recent-blogs {
+    // Styles for blog post previews will go here
   }
 }

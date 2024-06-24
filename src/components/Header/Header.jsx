@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
 import { ImagesContext } from '../../contexts/ImagesContext';
 import './Header.scss';
 
@@ -26,16 +27,16 @@ const Header = () => {
   const NavLinks = ({ onClick }) => (
     <>
       <Link to='/about' className='nav-link' onClick={onClick}>
-        About
+        about
       </Link>
       <Link to='/portfolio' className='nav-link' onClick={onClick}>
-        Portfolio
+        portfolio
       </Link>
       <Link to='/blog' className='nav-link' onClick={onClick}>
-        Blog
+        blog
       </Link>
       <Link to='/contact' className='nav-link' onClick={onClick}>
-        Contact
+        contact
       </Link>
     </>
   );

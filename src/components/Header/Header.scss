@@ -5,7 +5,7 @@
   z-index: 1000;
 
   .header-container {
-    max-width: 1200px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 1rem;
     display: flex;
@@ -22,7 +22,8 @@
   .nav-link {
     color: white;
     text-decoration: none;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
+    font-size: 1.1rem;
     &:hover {
       text-decoration: underline;
     }
@@ -30,11 +31,11 @@
 
   .social-icons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 
     a {
       color: white;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       &:hover {
         opacity: 0.8;
       }
@@ -101,19 +102,19 @@
     left: 0;
     right: 0;
     top: 100%;
-    background-color: #000000;
+    background-color: #111111;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.2s ease-out;
 
     .dropdown-content {
-      padding: 1rem;
       opacity: 0;
       transition: opacity 0.2s ease-out;
+      text-align: center;
     }
 
     &.open {
-      max-height: 300px; // Adjust based on your content
+      max-height: 500px; // Increased to accommodate larger items
       transition: max-height 0.3s ease-in;
 
       .dropdown-content {
@@ -124,23 +125,42 @@
 
     .nav-link {
       display: block;
-      margin-bottom: 0.5rem;
+      padding: 1.2rem 0; // Increased padding for larger touch targets
+      margin: 0;
+      font-size: 1.3rem; // Increased font size
+      text-transform: lowercase;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     .social-icons {
-      margin-top: 1rem;
+      padding: 1.2rem 0; // Added padding instead of margin
       justify-content: center;
+      gap: 2rem; // Increased gap between icons
+
+      a {
+        font-size: 1.6rem; // Increased icon size
+      }
     }
   }
 
   .desktop-menu {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-grow: 1;
 
     .nav-links {
-      margin-right: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .social-icons {
+      margin-left: 2rem;
     }
   }
 }
@@ -170,6 +190,19 @@
     .mobile-menu {
       margin-left: auto;
     }
+
+    .dropdown-menu {
+      .dropdown-content {
+        padding: 0;
+      }
+
+      .nav-link {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
   }
 }
 
@@ -185,7 +218,7 @@
 
     .desktop-menu {
       flex: 1 1 auto;
-      justify-content: center;
+      margin-left: 2rem;
     }
   }
 }

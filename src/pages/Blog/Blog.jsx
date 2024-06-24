@@ -1,27 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { getAllPosts } from '../../utils/blogUtils';
 import './Blog.scss';
 
 const Blog = () => {
+  const posts = getAllPosts();
+
   return (
     <div className='blog'>
-      <h1>My Blog</h1>
-      <div className='blog-posts'>
-        {/* Add your blog posts here */}
-        <div className='blog-post'>
-          <h2>Blog Post Title</h2>
-          <p>
-            Blog post content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula, sapien
-            eu fringilla dictum, nulla turpis consequat dolor, nec ullamcorper tortor nisi a lacus.
-          </p>
-        </div>
-        <div className='blog-post'>
-          <h2>Blog Post Title</h2>
-          <p>
-            Blog post content goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula, sapien
-            eu fringilla dictum, nulla turpis consequat dolor, nec ullamcorper tortor nisi a lacus.
-          </p>
-        </div>
-        {/* Add more blog posts as needed */}
+      <Helmet>
+        <title>Blog | Your Site Name</title>
+        <meta name='description' content='Read our latest blog posts about web development, design, and technology.' />
+        <link rel='canonical' href='https://yoursite.com/blog' />
+      </Helmet>
+      <h1>Blog</h1>
+      <div className='blog-list'>
+        {posts.map(({ id, title, date, excerpt }) => (
+          <article key={id} className='blog-preview'>
+            <h2>
+              <Link to={`/blog/${id}`}>{title}</Link>
+            </h2>
+            <time dateTime={date}>{new Date(date).toLocaleDateString()}</time>
+            <p>{excerpt}</p>
+            <Link to={`/blog/${id}`} aria-label={`Read more about ${title}`}>
+              Read more
+            </Link>
+          </article>
+        ))}
       </div>
     </div>
   );

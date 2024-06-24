@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -30,10 +31,26 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
       },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
+          {
+            loader: 'markdown-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    fallback: {
+      fs: false,
+      path: require.resolve('path-browserify'),
+      buffer: require.resolve('buffer/'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -54,6 +71,19 @@ module.exports = {
           },
         },
       ],
+    }),
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+    }),
+    new webpack.NormalModuleReplacementPlugin(/node:/, (resource) => {
+      const mod = resource.request.replace(/^node:/, '');
+      switch (mod) {
+        case 'buffer':
+          resource.request = 'buffer';
+          break;
+        default:
+          throw new Error(`Not found ${resource.request}`);
+      }
     }),
   ],
   optimization: {
