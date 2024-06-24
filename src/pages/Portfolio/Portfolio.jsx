@@ -1,7 +1,7 @@
 // src/pages/Portfolio/Portfolio.jsx
 import React, { useContext } from 'react';
 import { ImagesContext } from '../../contexts/ImagesContext';
-import PortfolioItem from '../../components/PortfolioItem/PortfolioItem';
+import HeroSection from '../../components/HeroSection/HeroSection';
 import './Portfolio.scss';
 
 const Portfolio = () => {
@@ -9,20 +9,12 @@ const Portfolio = () => {
 
   return (
     <div className='portfolio'>
-      <h1>My Portfolio</h1>
-      <div className='portfolio-items'>
-        <PortfolioItem
-          title='Project Title 1'
-          description='Project description goes here.'
-          imageSrc={images['project1.png']}
-        />
-        <PortfolioItem
-          title='Project Title 2'
-          description='Project description goes here.'
-          imageSrc={images['logo.png']}
-        />
-        {/* Add more PortfolioItem components as needed */}
-      </div>
+      <HeroSection
+        title='My Portfolio'
+        description='Welcome to my portfolio. Here you can find a selection of my recent projects and work.'
+        image={images['portfolio-banner.png']} // Replace with the appropriate image key
+      />
+      <div className='portfolio-content'>{/* Add your portfolio content here */}</div>
     </div>
   );
 };

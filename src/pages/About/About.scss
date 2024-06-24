@@ -1,46 +1,95 @@
-// src/pages/About/About.scss
 .about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  background-color: #f4f4f4;
-  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 
-  .container {
+  .about-header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4rem;
 
-  .profile {
-    margin-bottom: 20px;
+    .about-info {
+      flex: 1;
 
-    img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      h1 {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      .social-media {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          color: #fff;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          text-decoration: none;
+          transition: opacity 0.3s ease;
+
+          &:hover {
+            opacity: 0.8;
+          }
+
+          svg {
+            margin-right: 0.5rem;
+          }
+
+          &.twitter {
+            background-color: #1da1f2;
+          }
+          &.facebook {
+            background-color: #4267b2;
+          }
+          &.linkedin {
+            background-color: #0077b5;
+          }
+          &.instagram {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+          }
+        }
+      }
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: right;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
   }
+}
 
-  .content {
-    text-align: center;
+@media (max-width: 768px) {
+  .about {
+    .about-header {
+      flex-direction: column;
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+      .about-info {
+        margin-bottom: 2rem;
 
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 10px;
+        h1 {
+          font-size: 3.5rem;
+        }
+      }
+
+      .about-image {
+        text-align: center;
+      }
     }
   }
 }

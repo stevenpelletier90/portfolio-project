@@ -1,16 +1,11 @@
 // src/pages/Portfolio/Portfolio.scss
 .portfolio {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 
-  h1 {
-    color: #3498db;
-    margin-bottom: 20px;
-  }
-
-  .portfolio-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  .portfolio-content {
+    margin-top: 4rem;
+    /* Add more styles as needed */
   }
 }
