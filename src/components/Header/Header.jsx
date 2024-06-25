@@ -1,13 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
-import { ImagesContext } from '../../contexts/ImagesContext';
+import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './Header.scss';
 
 const Header = () => {
-  const images = useContext(ImagesContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -65,7 +62,7 @@ const Header = () => {
       <div className='header-container'>
         <div className='logo'>
           <Link to='/'>
-            <img src={images['logo.png']} alt='Logo of Steven Pelletier' className='logo-image' />
+            <img src={require('../../assets/images/logo.png')} alt='Logo of Steven Pelletier' className='logo-image' />
           </Link>
         </div>
 
