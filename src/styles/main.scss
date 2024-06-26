@@ -1,4 +1,17 @@
+// Import global styles and variables
 @import './variables';
 @import './mixins';
 @import './base';
 @import './normalize';
+
+// Import component styles
+@import '../components/Footer/Footer.scss';
+@import '../components/Header/Header.scss';
+@import '../components/PortfolioItem/PortfolioItem.scss';
+
+// Import page styles
+@import '../pages/About/About.scss';
+@import '../pages/Contact/Contact.scss';
+@import '../pages/Home/Home.scss';
+@import '../pages/NotFound/NotFound.scss';
+@import '../pages/Portfolio/Portfolio.scss';

@@ -1,0 +1,21 @@
+.hero {
+  width: 100%;
+  background-color: #ccc; /* Light gray background */
+  padding: 100px 0; /* Adjust as needed for spacing */
+
+  .hero-content {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #666; /* Adjust as needed for styling */
+    }
+  }
+}
