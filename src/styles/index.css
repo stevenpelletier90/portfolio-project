@@ -1,0 +1,32 @@
+/* Fonts */
+@import './fonts.css';
+
+/* Variables */
+@import './variables.css';
+
+/* Normalize (this should come first to establish a consistent base) */
+@import 'normalize.css/normalize.css';
+
+/* Components */
+@import '../components/header/Header.module.css';
+@import '../components/footer/Footer.module.css';
+
+/* Pages */
+@import '../pages/home/Home.module.css';
+@import '../pages/about/About.module.css';
+@import '../pages/portfolio/Portfolio.module.css';
+@import '../pages/contact/Contact.module.css';
+@import '../pages/notfound/NotFound.module.css';
+
+/* Add this to your global CSS file */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

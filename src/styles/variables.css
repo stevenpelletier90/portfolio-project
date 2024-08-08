@@ -1,0 +1,46 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --standard-transition: all 0.3s ease;
+
+  --footer-min-height: 100px;
+  --footer-min-height-md: 90px;
+  --footer-min-height-sm: 85px;
+  --footer-min-height-xs: 80px;
+
+  --header-min-height: 100px;
+  --header-min-height-md: 90px;
+  --header-min-height-sm: 85px;
+  --header-min-height-xs: 80px;
+
+  --header-logo-height: 50px;
+  --header-logo-height-md: 44px;
+  --header-logo-height-sm: 42px;
+  --header-logo-height-xs: 40px;
+
+  /* Headings and Paragraphs */
+  --heading-font-size: clamp(4.2rem, 15vw, 20rem);
+  --heading-font-size-2: clamp(1.6rem, 3.5vw, 5rem);
+  --paragraph-font-size: clamp(1.6rem, 5vw, 6rem);
+
+  /* Acorn font family */
+  --font-acorn-thin: 'Acorn Thin', sans-serif;
+  --font-acorn-extralight: 'Acorn Extra Light', sans-serif;
+  --font-acorn-light: 'Acorn Light', sans-serif;
+  --font-acorn-regular: 'Acorn Regular', sans-serif;
+  --font-acorn-medium: 'Acorn Medium', sans-serif;
+  --font-acorn-semibold: 'Acorn Semi Bold', sans-serif;
+  --font-acorn-bold: 'Acorn Bold', sans-serif;
+
+  /* GT America font family */
+  --font-gt-america-thin: 'GT America Thin', sans-serif;
+  --font-gt-america-ultralight: 'GT America Ultra Light', sans-serif;
+  --font-gt-america-light: 'GT America Light', sans-serif;
+  --font-gt-america-regular: 'GT America Regular', sans-serif;
+  --font-gt-america-medium: 'GT America Medium', sans-serif;
+  --font-gt-america-bold: 'GT America Bold', sans-serif;
+
+  /* Generic font family variables */
+  --font-primary: var(--font-acorn-regular);
+  --font-secondary: var(--font-gt-america-regular);
+}

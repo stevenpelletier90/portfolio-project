@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Acorn Thin';
+  src: url('../assets/fonts/Acorn/acorn-thin.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-thin.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-thin.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acorn Extra Light';
+  src: url('../assets/fonts/Acorn/acorn-extralight.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-extralight.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-extralight.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acorn Light';
+  src: url('../assets/fonts/Acorn/acorn-light.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-light.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-light.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acorn Regular';
+  src: url('../assets/fonts/Acorn/acorn-regular.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-regular.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acorn Medium';
+  src: url('../assets/fonts/Acorn/acorn-medium.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-medium.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-medium.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acorn Semi Bold';
+  src: url('../assets/fonts/Acorn/acorn-semibold.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-semibold.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-semibold.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Acorn Bold';
+  src: url('../assets/fonts/Acorn/acorn-bold.woff2') format('woff2'),
+    url('../assets/fonts/Acorn/acorn-bold.woff') format('woff'),
+    url('../assets/fonts/Acorn/acorn-bold.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Thin';
+  src: url('../assets/fonts/GT-America/gt-america-standard-thin.woff2') format('woff2'),
+    url('../assets/fonts/GT-America/gt-america-standard-thin.woff') format('woff'),
+    url('../assets/fonts/GT-America/gt-america-standard-thin.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Ultra Light';
+  src: url('../assets/fonts/GT-America/gt-america-standard-ultra-light.woff2') format('woff2'),
+    url('../assets/fonts/GT-America/gt-america-standard-ultra-light.woff') format('woff'),
+    url('../assets/fonts/GT-America/gt-america-standard-ultra-light.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Light';
+  src: url('../assets/fonts/GT-America/gt-america-standard-light.woff2') format('woff2'),
+    url('../assets/fonts/GT-America/gt-america-standard-light.woff') format('woff'),
+    url('../assets/fonts/GT-America/gt-america-standard-light.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Regular';
+  src: url('../assets/fonts/GT-America/gt-america-standard-regular.woff2') format('woff2'),
+    url('../assets/fonts/GT-America/gt-america-standard-regular.woff') format('woff'),
+    url('../assets/fonts/GT-America/gt-america-standard-regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Medium';
+  src: url('../assets/fonts/GT-America/gt-america-standard-medium.woff2') format('woff2'),
+    url('../assets/fonts/GT-America/gt-america-standard-medium.woff') format('woff'),
+    url('../assets/fonts/GT-America/gt-america-standard-medium.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'GT America Bold';
+  src: url('../assets/fonts/GT-America/gt-america-standard-bold.woff2') format('woff2'),
+    url('../assets/fonts/GT-America/gt-america-standard-bold.woff') format('woff'),
+    url('../assets/fonts/GT-America/gt-america-standard-bold.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
