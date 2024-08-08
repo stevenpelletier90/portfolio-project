@@ -54,7 +54,12 @@ const Contact = () => {
     setSubmitMessage('');
 
     emailjs
-      .sendForm('service_1dtzp12', 'template_feg2c2x', form.current, 'VHk0I2RXyGiXpRPb7')
+      .sendForm(
+        'service_1dtzp12',
+        'template_feg2c2x',
+        form.current,
+        'VHk0I2RXyGiXpRPb7'
+      )
       .then(
         (result) => {
           console.log('SUCCESS!', result.text);
@@ -109,16 +114,28 @@ const Contact = () => {
         <link rel='canonical' href='https://stevendpelletier.com/contact' />
 
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://stevendpelletier.com/contact' />
-        <meta property='og:title' content='Contact Steven Pelletier | Front-End & WordPress Developer in Orlando, FL' />
+        <meta
+          property='og:url'
+          content='https://stevendpelletier.com/contact'
+        />
+        <meta
+          property='og:title'
+          content='Contact Steven Pelletier | Front-End & WordPress Developer in Orlando, FL'
+        />
         <meta
           property='og:description'
           content='Reach out to Steve Pelletier for expert web development services. Specializing in front-end development, WordPress, and responsive design in Orlando, FL.'
         />
-        <meta property='og:image' content='https://stevendpelletier.com/og-image.jpg' />
+        <meta
+          property='og:image'
+          content='https://stevendpelletier.com/og-image.jpg'
+        />
 
         <meta property='twitter:card' content='summary_large_image' />
-        <meta property='twitter:url' content='https://stevendpelletier.com/contact' />
+        <meta
+          property='twitter:url'
+          content='https://stevendpelletier.com/contact'
+        />
         <meta
           property='twitter:title'
           content='Contact Steven Pelletier | Front-End & WordPress Developer in Orlando, FL'
@@ -127,9 +144,14 @@ const Contact = () => {
           property='twitter:description'
           content='Get in touch with Steven Pelletier for top-notch web development services. Expert in front-end, WordPress, and responsive design in Orlando, FL.'
         />
-        <meta property='twitter:image' content='https://stevendpelletier.com/twitter-image.jpg' />
+        <meta
+          property='twitter:image'
+          content='https://stevendpelletier.com/twitter-image.jpg'
+        />
 
-        <script type='application/ld+json'>{JSON.stringify(structuredData)}</script>
+        <script type='application/ld+json'>
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       <div className={styles.contact}>
         <div className={styles.hero}>
@@ -137,15 +159,13 @@ const Contact = () => {
             className={styles.title}
             variants={contactAnimations.containerVariants}
             initial='hidden'
-            animate='visible'
-          >
+            animate='visible'>
             {titleText.split('').map((char, index) => (
               <motion.span
                 key={index}
                 variants={contactAnimations.letterVariants}
                 custom={index}
-                className={styles.animatedLetter}
-              >
+                className={styles.animatedLetter}>
                 {char === ' ' ? '\u00A0' : char}
               </motion.span>
             ))}
@@ -155,11 +175,11 @@ const Contact = () => {
           className={styles.content}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
+          transition={{ duration: 0.5, delay: 0.5 }}>
           <p className={styles.intro}>
-            I&apos;m always excited to discuss new web development projects, WordPress solutions, or answer any
-            questions about front-end development and design. Feel free to reach out!
+            I&apos;m always excited to discuss new web development projects,
+            WordPress solutions, or answer any questions about front-end
+            development and design. Feel free to reach out!
           </p>
           <div className={styles.formWrapper}>
             <motion.form
@@ -168,28 +188,54 @@ const Contact = () => {
               onSubmit={handleSubmit}
               variants={contactAnimations.formVariants}
               initial='hidden'
-              animate='visible'
-            >
+              animate='visible'>
               <div className={styles.formGroup}>
                 <label htmlFor='from_name'>Name</label>
-                <input type='text' id='from_name' name='from_name' required aria-required='true' />
+                <input
+                  type='text'
+                  id='from_name'
+                  name='from_name'
+                  required
+                  aria-required='true'
+                />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor='from_email'>Email</label>
-                <input type='email' id='from_email' name='from_email' required aria-required='true' />
+                <input
+                  type='email'
+                  id='from_email'
+                  name='from_email'
+                  required
+                  aria-required='true'
+                />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor='from_phone'>Phone</label>
-                <input type='tel' id='from_phone' name='from_phone' aria-required='false' />
+                <input
+                  type='tel'
+                  id='from_phone'
+                  name='from_phone'
+                  aria-required='false'
+                />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor='message'>Message</label>
-                <textarea id='message' name='message' rows='5' required aria-required='true'></textarea>
+                <textarea
+                  id='message'
+                  name='message'
+                  rows='5'
+                  required
+                  aria-required='true'></textarea>
               </div>
-              <button type='submit' className={styles.submitButton} disabled={isSubmitting}>
+              <button
+                type='submit'
+                className={styles.submitButton}
+                disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Email'}
               </button>
-              {submitMessage && <p className={styles.submitMessage}>{submitMessage}</p>}
+              {submitMessage && (
+                <p className={styles.submitMessage}>{submitMessage}</p>
+              )}
             </motion.form>
           </div>
         </motion.div>

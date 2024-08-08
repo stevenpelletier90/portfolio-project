@@ -86,14 +86,18 @@
 
 @media (max-width: 992px) {
   .notFound {
-    min-height: calc(100vh - var(--header-min-height-md) - var(--footer-min-height-md));
+    min-height: calc(
+      100vh - var(--header-min-height-md) - var(--footer-min-height-md)
+    );
     padding: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .notFound {
-    min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
+    min-height: calc(
+      100vh - var(--header-min-height-sm) - var(--footer-min-height-sm)
+    );
     padding: 1rem;
   }
 
@@ -116,7 +120,9 @@
 
 @media (max-width: 576px) {
   .notFound {
-    min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
+    min-height: calc(
+      100vh - var(--header-min-height-xs) - var(--footer-min-height-xs)
+    );
   }
 
   .content {

@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import styles from './About.module.css';
-import SkillsGraph from '../../components/skillsgraph/SkillsGraph';
 import gallery1 from '../../assets/images/mountain-image.jpg';
 import gallery2 from '../../assets/images/image-roof.jpg';
 import gallery3 from '../../assets/images/me-pool.jpg';
@@ -24,6 +23,7 @@ const About = () => {
       setWeather(data.current);
     };
     fetchWeather();
+
     Fancybox.bind('[data-fancybox]', {});
     return () => {
       Fancybox.destroy();
@@ -65,10 +65,7 @@ const About = () => {
           name='description'
           content='Steven Pelletier is a Senior Web Developer with over a decade of experience in front-end development, WordPress, and digital media. Specializing in React, CSS, and user-friendly web solutions.'
         />
-        <meta
-          name='keywords'
-          content='Steven Pelletier, Senior Web Developer, Front-End Development, WordPress Expert, React, CSS, JavaScript, Digital Media, Mia Aesthetics, PatientNow'
-        />
+        <meta name='keywords' content='Steven Pelletier, Senior Web Developer, Front-End Development, WordPress Expert, React, CSS, JavaScript, Digital Media, Mia Aesthetics, PatientNow' />
         <link rel='canonical' href='https://stevendpelletier.com/about' />
         <meta property='og:title' content='Steve Pelletier &bull; About' />
         <meta
@@ -79,51 +76,28 @@ const About = () => {
         <meta property='og:type' content='website' />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:title' content='About Steven Pelletier | Senior Web Developer | Front-End Expert' />
-        <meta
-          name='twitter:description'
-          content="Discover Steve Pelletier's journey as a Senior Web Developer, specializing in front-end development, WordPress, and digital media solutions."
-        />
+        <meta name='twitter:description' content="Discover Steve Pelletier's journey as a Senior Web Developer, specializing in front-end development, WordPress, and digital media solutions." />
       </Helmet>
       <div className={styles.about}>
         <div className={styles.hero}>
-          <motion.h1
-            className={styles.title}
-            variants={aboutAnimations.containerVariants}
-            initial='hidden'
-            animate='visible'
-          >
+          <motion.h1 className={styles.title} variants={aboutAnimations.containerVariants} initial='hidden' animate='visible'>
             {titleText.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                variants={aboutAnimations.letterVariants}
-                custom={index}
-                className={styles.animatedLetter}
-              >
+              <motion.span key={index} variants={aboutAnimations.letterVariants} custom={index} className={styles.animatedLetter}>
                 {char === ' ' ? '\u00A0' : char}
               </motion.span>
             ))}
           </motion.h1>
         </div>
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
+        <motion.div className={styles.content} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
           <div className={styles.introSection}>
             <div className={styles.profileImageContainer}>
               <img src={profileImage} alt='Steve Pelletier' className={styles.profileImage} />
             </div>
             <div className={styles.introText}>
-              <h2>
-                I&apos;m a Front-End Web Developer working remotely from{' '}
-                {weather && <span className={styles.weather}>{Math.round(weather.temp_f)}°F Orlando, FL</span>}
-              </h2>
+              <h2>I&apos;m a Front-End Web Developer working remotely from {weather && <span className={styles.weather}>{Math.round(weather.temp_f)}°F Orlando, FL</span>}</h2>
               <p>
-                Over the past 14 years, I&apos;ve worked in various areas of digital design, including front-end
-                development, email, marketing, and app UI/UX. I&apos;m proud to have worn many hats. These days, I focus
-                on leading design at GiveDirectly, a nonprofit that lets donors send money directly to the world&apos;s
-                poorest households.
+                Over the past 14 years, I&apos;ve worked in various areas of digital design, including front-end development, email, marketing, and app UI/UX. I&apos;m proud to have worn many hats.
+                These days, I focus on leading design at GiveDirectly, a nonprofit that lets donors send money directly to the world&apos;s poorest households.
               </p>
             </div>
           </div>
@@ -134,7 +108,6 @@ const About = () => {
               </a>
             ))}
           </div>
-          <SkillsGraph />
         </motion.div>
       </div>
     </>

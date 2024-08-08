@@ -49,15 +49,13 @@ const NotFound = () => {
             className={styles.title}
             variants={notFoundAnimations.containerVariants}
             initial='hidden'
-            animate='visible'
-          >
+            animate='visible'>
             {titleText.split('').map((char, index) => (
               <motion.span
                 key={index}
                 variants={notFoundAnimations.letterVariants}
                 custom={index}
-                className={styles.animatedLetter}
-              >
+                className={styles.animatedLetter}>
                 {char}
               </motion.span>
             ))}
@@ -67,10 +65,12 @@ const NotFound = () => {
           className={styles.content}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
+          transition={{ duration: 0.5, delay: 0.5 }}>
           <h2 className={styles.subtitle}>Page Not Found</h2>
-          <p className={styles.description}>The page you&apos;re looking for doesn&apos;t exist or has been moved.</p>
+          <p className={styles.description}>
+            The page you&apos;re looking for doesn&apos;t exist or has been
+            moved.
+          </p>
           <Link to='/' className={styles.homeLink}>
             Go back to Homepage
           </Link>

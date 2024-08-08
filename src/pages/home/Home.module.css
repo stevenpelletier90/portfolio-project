@@ -65,18 +65,24 @@
 
 @media (max-width: 992px) {
   .home {
-    min-height: calc(100vh - var(--header-min-height-md) - var(--footer-min-height-md));
+    min-height: calc(
+      100vh - var(--header-min-height-md) - var(--footer-min-height-md)
+    );
   }
 }
 
 @media (max-width: 768px) {
   .home {
-    min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
+    min-height: calc(
+      100vh - var(--header-min-height-sm) - var(--footer-min-height-sm)
+    );
   }
 }
 
 @media (max-width: 576px) {
   .home {
-    min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
+    min-height: calc(
+      100vh - var(--header-min-height-xs) - var(--footer-min-height-xs)
+    );
   }
 }

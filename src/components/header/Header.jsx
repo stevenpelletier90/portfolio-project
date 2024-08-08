@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
 import PropTypes from 'prop-types';
 import LogoPNG from '../../assets/images/logo.png';
 import styles from './Header.module.css';
@@ -38,7 +42,11 @@ const NavLinks = ({ onClick, isMobile }) => {
   }, [location.pathname, isMobile, updateActiveStyle]);
 
   return (
-    <nav className={styles.navLinks} ref={navRef} itemScope itemType='http://schema.org/SiteNavigationElement'>
+    <nav
+      className={styles.navLinks}
+      ref={navRef}
+      itemScope
+      itemType='http://schema.org/SiteNavigationElement'>
       {pages.map((page) => {
         const path = page === 'home' ? '/' : `/${page}`;
         const isActive = location.pathname === path;
@@ -51,15 +59,21 @@ const NavLinks = ({ onClick, isMobile }) => {
               onClick();
               updateActiveStyle();
             }}
-            itemProp='url'
-          >
-            <span itemProp='name' style={{ textTransform: 'capitalize' }}>
+            itemProp='url'>
+            <span
+              itemProp='name'
+              style={{ textTransform: 'capitalize' }}>
               {page}
             </span>
           </Link>
         );
       })}
-      {!isMobile && <div className={styles.activeBackground} style={activeStyle} />}
+      {!isMobile && (
+        <div
+          className={styles.activeBackground}
+          style={activeStyle}
+        />
+      )}
     </nav>
   );
 };
@@ -72,11 +86,28 @@ NavLinks.propTypes = {
 const SocialIcons = () => (
   <div className={styles.socialIcons}>
     {[
-      { href: 'https://github.com/stevenpelletier90', icon: faGithub, label: 'GitHub' },
-      { href: 'https://www.instagram.com/steverino__/', icon: faInstagram, label: 'Instagram' },
-      { href: 'https://www.linkedin.com/in/stevendpelletier/', icon: faLinkedin, label: 'LinkedIn' },
+      {
+        href: 'https://github.com/stevenpelletier90',
+        icon: faGithub,
+        label: 'GitHub',
+      },
+      {
+        href: 'https://www.instagram.com/steverino__/',
+        icon: faInstagram,
+        label: 'Instagram',
+      },
+      {
+        href: 'https://www.linkedin.com/in/stevendpelletier/',
+        icon: faLinkedin,
+        label: 'LinkedIn',
+      },
     ].map(({ href, icon, label }) => (
-      <a key={label} href={href} target='_blank' rel='noopener noreferrer' aria-label={label}>
+      <a
+        key={label}
+        href={href}
+        target='_blank'
+        rel='noopener noreferrer'
+        aria-label={label}>
         <FontAwesomeIcon icon={icon} />
       </a>
     ))}
@@ -128,11 +159,23 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className={styles.header} itemScope itemType='http://schema.org/WPHeader' data-header>
+    <header
+      className={styles.header}
+      itemScope
+      itemType='http://schema.org/WPHeader'
+      data-header>
       <div className={styles.headerContainer}>
         <div className={styles.logoWrapper}>
-          <Link to='/' className={styles.logoLink} itemProp='url'>
-            <img src={LogoPNG} alt='Steven Pelletier' className={styles.logoImage} itemProp='logo' />
+          <Link
+            to='/'
+            className={styles.logoLink}
+            itemProp='url'>
+            <img
+              src={LogoPNG}
+              alt='Steven Pelletier'
+              className={styles.logoImage}
+              itemProp='logo'
+            />
           </Link>
         </div>
         {isMobile && (
@@ -141,17 +184,20 @@ const Header = () => {
             onClick={toggleMenu}
             className={`${styles.menuToggle} ${isMenuOpen ? styles.open : ''}`}
             aria-expanded={isMenuOpen}
-            aria-label='Toggle menu'
-          >
+            aria-label='Toggle menu'>
             <span className={styles.hamburgerIcon}></span>
             <span className={styles.srOnly}>Toggle menu</span>
           </button>
         )}
         <div
           ref={menuRef}
-          className={`${styles.menu} ${isMobile ? styles.mobileMenu : ''} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
-        >
-          <NavLinks onClick={() => setIsMenuOpen(false)} isMobile={isMobile} />
+          className={`${styles.menu} ${isMobile ? styles.mobileMenu : ''} ${
+            isMenuOpen ? styles.mobileMenuOpen : ''
+          }`}>
+          <NavLinks
+            onClick={() => setIsMenuOpen(false)}
+            isMobile={isMobile}
+          />
           <SocialIcons />
         </div>
       </div>

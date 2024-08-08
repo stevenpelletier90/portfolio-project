@@ -1,68 +1,113 @@
+import { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Legend } from 'chart.js';
 import styles from './SkillsGraph.module.css';
 
-const data = [
-  { name: 'Singing', value: 90, fill: 'url(#gradientSinging)' },
-  { name: 'Web Development', value: 90, fill: 'url(#gradientWebDev)' },
-  { name: 'Cooking', value: 70, fill: 'url(#gradientCooking)' },
-  { name: 'Surfing', value: 60, fill: 'url(#gradientSurfing)' },
-  { name: 'Bouldering', value: 40, fill: 'url(#gradientBouldering)' },
-];
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Legend);
 
-const levels = ['Novice', 'Intermediate', 'Advanced', 'Expert', 'Master'];
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    const level = levels[Math.floor((payload[0].value - 1) / 20)];
-    return (
-      <div className={styles.customTooltip}>
-        <p>{`${label}: ${payload[0].value}%`}</p>
-        <p>{`Level: ${level}`}</p>
-      </div>
-    );
-  }
-  return null;
+const levelToValue = {
+  Noobie: 1,
+  Casual: 2,
+  Enthusiast: 3,
+  Pro: 4,
+  Expert: 5,
+  Wizard: 5,
 };
 
-const SkillsGraph = () => {
+const SkillsGraph = ({ skills, title = 'My Skills' }) => {
+  const chartRef = useRef(null);
+  const [chartSize, setChartSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartRef.current) {
+        const containerWidth = chartRef.current.parentElement.offsetWidth;
+        const containerHeight = chartRef.current.parentElement.offsetHeight;
+        setChartSize({
+          width: containerWidth,
+          height: Math.max(300, containerHeight, containerWidth * 0.6),
+        });
+      }
+    };
+
+    handleResize(); // Initial size
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const data = {
+    labels: skills.map((skill) => skill.name),
+    datasets: [
+      {
+        label: 'Skill Level',
+        data: skills.map((skill) => levelToValue[skill.level]),
+        backgroundColor: skills.map(() => `hsl(${Math.random() * 360}, 70%, 50%)`),
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: title,
+        font: {
+          size: chartSize.width < 500 ? 14 : 18,
+        },
+      },
+      tooltip: {
+        enabled: false,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 5,
+        ticks: {
+          stepSize: 1,
+          callback: function (value) {
+            return ['Noobie', 'Casual', 'Enthusiast', 'Pro', 'Expert'][value - 1] || '';
+          },
+          font: {
+            size: chartSize.width < 500 ? 10 : 12,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          font: {
+            size: chartSize.width < 500 ? 10 : 12,
+          },
+          maxRotation: 45,
+          minRotation: 45,
+        },
+      },
+    },
+  };
+
   return (
-    <div className={styles.skillsGraph}>
-      <h2>My Skills</h2>
-      <ResponsiveContainer width='100%' height={400}>
-        <BarChart data={data} layout='vertical' margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-          <CartesianGrid strokeDasharray='3 3' />
-          <XAxis type='number' domain={[0, 100]} />
-          <YAxis dataKey='name' type='category' />
-          <Tooltip content={<CustomTooltip />} />
-          <defs>
-            {data.map((entry, index) => (
-              <linearGradient
-                key={`gradient-${entry.name}`}
-                id={`gradient${entry.name.replace(/\s+/g, '')}`}
-                x1='0'
-                y1='0'
-                x2='1'
-                y2='0'
-              >
-                <animate attributeName='x1' values='0;1;0' dur='10s' repeatCount='indefinite' />
-                <animate attributeName='x2' values='1;0;1' dur='10s' repeatCount='indefinite' />
-                <stop offset='0%' stopColor={`hsl(${index * 60}, 70%, 50%)`} />
-                <stop offset='100%' stopColor={`hsl(${index * 60 + 30}, 70%, 50%)`} />
-              </linearGradient>
-            ))}
-          </defs>
-          <Bar dataKey='value' />
-        </BarChart>
-      </ResponsiveContainer>
+    <div className={styles.skillsGraph} ref={chartRef} style={{ height: `${chartSize.height}px` }}>
+      <Bar data={data} options={options} width={chartSize.width} height={chartSize.height} />
     </div>
   );
 };
 
-CustomTooltip.propTypes = {
-  active: PropTypes.bool,
-  payload: PropTypes.array,
-  label: PropTypes.string,
+SkillsGraph.propTypes = {
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      level: PropTypes.oneOf(['Noobie', 'Casual', 'Enthusiast', 'Pro', 'Expert', 'Wizard']).isRequired,
+    })
+  ).isRequired,
+  title: PropTypes.string,
 };
 
 export default SkillsGraph;
