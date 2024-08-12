@@ -46,6 +46,7 @@
 .formWrapper {
   max-width: 600px;
   margin: 0 auto;
+  font-family: var(--font-gt-america-regular);
 }
 
 .contactForm {
@@ -61,7 +62,6 @@
 
 .formGroup label {
   font-size: 1.6rem;
-  font-family: var(--font-gt-america-regular);
   margin-bottom: 0.5rem;
   color: #333333;
 }

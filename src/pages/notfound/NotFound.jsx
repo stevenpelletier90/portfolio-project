@@ -31,49 +31,47 @@ const NotFound = () => {
         },
       },
     },
+    buttonVariants: {
+      initial: { y: 0 },
+      animate: {
+        y: [-5, 5],
+        transition: {
+          y: {
+            repeat: Infinity,
+            repeatType: 'reverse',
+            duration: 1,
+            ease: 'easeInOut',
+          },
+        },
+      },
+    },
   };
 
   return (
     <>
       <Helmet>
         <title>Steve Pelletier &bull; 404 - Not Found</title>
-        <meta
-          name='description'
-          content="The page you're looking for doesn't exist. Navigate back to Steve Pelletier's portfolio homepage."
-        />
+        <meta name='description' content="The page you're looking for doesn't exist. Navigate back to Steve Pelletier's portfolio homepage." />
         <meta name='robots' content='noindex, follow' />
       </Helmet>
       <div className={styles.notFound}>
         <div className={styles.hero}>
-          <motion.h1
-            className={styles.title}
-            variants={notFoundAnimations.containerVariants}
-            initial='hidden'
-            animate='visible'>
+          <motion.h1 className={styles.title} variants={notFoundAnimations.containerVariants} initial='hidden' animate='visible'>
             {titleText.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                variants={notFoundAnimations.letterVariants}
-                custom={index}
-                className={styles.animatedLetter}>
+              <motion.span key={index} variants={notFoundAnimations.letterVariants} custom={index} className={styles.animatedLetter}>
                 {char}
               </motion.span>
             ))}
           </motion.h1>
         </div>
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}>
+        <motion.div className={styles.content} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
           <h2 className={styles.subtitle}>Page Not Found</h2>
-          <p className={styles.description}>
-            The page you&apos;re looking for doesn&apos;t exist or has been
-            moved.
-          </p>
-          <Link to='/' className={styles.homeLink}>
-            Go back to Homepage
-          </Link>
+          <p className={styles.description}>The page you&apos;re looking for doesn&apos;t exist or has been moved.</p>
+          <motion.div variants={notFoundAnimations.buttonVariants} initial='initial' animate='animate'>
+            <Link to='/' className={styles.homeLink}>
+              Go back to Homepage
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </>
