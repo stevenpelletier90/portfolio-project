@@ -18,8 +18,9 @@
 .title {
   font-size: var(--heading-font-size);
   font-family: var(--font-acorn-bold);
-  color: #1b1b1b;
+  color: #ffffff;
   margin: 0 0 2rem 0;
+  color: var(--color-darkest);
 }
 
 .animatedLetter {
@@ -39,7 +40,7 @@
   display: flex;
   align-items: flex-start;
   gap: 5rem;
-  margin-bottom: 4rem;
+  margin: 0 0 4rem 0;
 }
 
 .profileImageContainer {
@@ -62,23 +63,22 @@
 .introText h2 {
   font-size: clamp(2rem, 0.8vw + 4vw, 3rem);
   line-height: 1.4;
-  color: #1b1b1b;
+  color: var(--color-darker);
   font-family: var(--font-acorn-regular);
   margin: 0 0 2rem 0;
 }
 
 .introText p {
   font-size: clamp(1.6rem, 0.8rem + 1vw, 2rem);
-  color: #1b1b1b;
+  color: var(--color-darker);
   line-height: 1.6;
   font-family: var(--font-gt-america-regular);
   margin: 0 0 2rem 0;
-  font-weight: 600;
 }
 
 .weather {
-  font-weight: bold;
-  color: #7e7e7e;
+  font-weight: 600;
+  color: var(--color-dark);
 }
 
 .gallerySection {
@@ -111,15 +111,15 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 1240px) {
+@media (width <= 1240px) {
   /* Existing styles for this breakpoint */
 }
 
-@media (max-width: 1199px) {
+@media (width <= 1200px) {
   /* Existing styles for this breakpoint */
 }
 
-@media (max-width: 992px) {
+@media (width <= 992px) {
   .about {
     min-height: calc(100vh - var(--header-min-height-md) - var(--footer-min-height-md));
   }
@@ -132,11 +132,11 @@
   .profileImageContainer {
     flex: 0 0 100%;
     max-width: 100%;
-    margin-bottom: 2rem;
+    margin: 0 0 2rem 0;
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .about {
     min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
   }
@@ -160,7 +160,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .about {
     min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
   }

@@ -9,6 +9,7 @@
   padding: 2rem;
   box-sizing: border-box;
   color: #fff;
+  background: var(--gradient-underwater);
 }
 
 .hero {
@@ -22,7 +23,7 @@
   font-size: var(--heading-font-size);
   font-family: var(--font-acorn-bold);
   line-height: 1.2;
-  color: #000000;
+  color: var(--color-darkest);
   margin: 0 auto;
 }
 
@@ -34,7 +35,7 @@
 .subtitle {
   font-family: var(--font-acorn-light);
   font-size: var(--heading-font-size-2);
-  color: #000000;
+  color: var(--color-darker);
   margin: 0 0 2rem 0;
   line-height: 1.4;
 }
@@ -52,7 +53,7 @@
 .description {
   font-size: clamp(1.6rem, 15vw, 4rem);
   font-family: var(--font-gt-america-regular);
-  color: #000000;
+  color: var(--color-dark);
   margin: 0 0 4rem 0;
 }
 
@@ -61,7 +62,7 @@
   padding: 1rem 2rem;
   font-size: 2rem;
   font-family: var(--font-gt-america-regular);
-  background-color: #000000;
+  background-color: var(--color-darkest);
   color: #ffffff;
   text-decoration: none;
   border-radius: 5px;
@@ -69,13 +70,13 @@
 }
 
 .homeLink:hover {
-  background-color: #727272;
+  background-color: var(--color-darker);
 }
 
 @media (max-width: 1240px) {
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
 }
 
 @media (max-width: 992px) {

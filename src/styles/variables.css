@@ -1,6 +1,16 @@
 :root {
-  --black: #000;
-  --white: #fff;
+  /* New color palette */
+  --color-darkest: #00171f;
+  --color-darker: #003459;
+  --color-dark: #007ea7;
+  --color-medium: #00a8e8;
+  --color-light: #ffffff; /* Keeping white for contrast */
+
+  /* Existing variables updated with new palette */
+  --primary-color: var(--color-darker);
+  --accent-color: var(--color-medium);
+
+  /* Existing variables (unchanged) */
   --standard-transition: all 0.3s ease;
 
   --footer-min-height: 100px;
@@ -21,9 +31,9 @@
   /* Headings and Paragraphs */
   --heading-font-size: clamp(4rem, 15vw, 20rem);
   --heading-font-size-2: clamp(1.6rem, 3.5vw, 5rem);
-  --paragraph-font-size: clamp(1.6rem, 5vw, 6rem);
+  --paragraph-font-size: clamp(1.6rem, 5vw, 1.6rem);
 
-  /* Acorn font family */
+  /* Font families (unchanged) */
   --font-acorn-thin: 'Acorn Thin', sans-serif;
   --font-acorn-extralight: 'Acorn Extra Light', sans-serif;
   --font-acorn-light: 'Acorn Light', sans-serif;
@@ -32,7 +42,6 @@
   --font-acorn-semibold: 'Acorn Semi Bold', sans-serif;
   --font-acorn-bold: 'Acorn Bold', sans-serif;
 
-  /* GT America font family */
   --font-gt-america-thin: 'GT America Thin', sans-serif;
   --font-gt-america-ultralight: 'GT America Ultra Light', sans-serif;
   --font-gt-america-light: 'GT America Light', sans-serif;
@@ -40,7 +49,36 @@
   --font-gt-america-medium: 'GT America Medium', sans-serif;
   --font-gt-america-bold: 'GT America Bold', sans-serif;
 
-  /* Generic font family variables */
   --font-primary: var(--font-acorn-regular);
   --font-secondary: var(--font-gt-america-regular);
+}
+
+@media (width <= 1250px) {
+  :root {
+    --heading-font-size: clamp(3.5rem, 12vw, 15rem);
+  }
+}
+
+@media (width <= 1200px) {
+  :root {
+    --heading-font-size: clamp(3.5rem, 12vw, 15rem);
+  }
+}
+
+@media (width <= 992px) {
+  :root {
+    --heading-font-size: clamp(3rem, 10vw, 12rem);
+  }
+}
+
+@media (width <= 768px) {
+  :root {
+    --heading-font-size: clamp(2.5rem, 10vw, 10rem);
+  }
+}
+
+@media (width <= 567px) {
+  :root {
+    --heading-font-size: clamp(2rem, 10vw, 5rem);
+  }
 }

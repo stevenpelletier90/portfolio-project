@@ -7,6 +7,7 @@
   position: relative;
   padding: 2rem;
   box-sizing: border-box;
+  background: var(--gradient-underwater);
 }
 
 .hero {
@@ -18,8 +19,8 @@
 .title {
   font-size: var(--heading-font-size);
   font-family: var(--font-acorn-bold);
-  color: #1b1b1b;
-  margin: 0 0 2rem 0;
+  color: var(--color-darkest);
+  margin: 0 0 0 0;
 }
 
 .animatedLetter {
@@ -33,6 +34,7 @@
   font-size: clamp(1.6rem, 3.5vw, 2.5rem);
   line-height: 1.6;
   margin: 0 0 5rem 0;
+  color: var(--color-darker);
 }
 
 .content {
@@ -62,8 +64,8 @@
 
 .formGroup label {
   font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-  color: #333333;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-darker);
 }
 
 .formGroup input,
@@ -88,9 +90,8 @@
   padding: 1rem 2rem;
   font-size: 1.8rem;
   font-family: var(--font-gt-america-regular);
-  font-weight: 600;
-  background-color: #1b1b1b;
-  color: #ffffff;
+  background-color: var(--color-darker);
+  color: var(--color-light);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -98,7 +99,7 @@
 }
 
 .submitButton:hover {
-  background-color: #494949;
+  background-color: var(--color-dark);
 }
 
 .submitButton:disabled {
@@ -113,31 +114,31 @@
   color: #333333;
 }
 
-@media (max-width: 1240px) {
+@media (width <= 1240px) {
   .content {
     padding: 2rem 5%;
   }
 }
 
-@media (max-width: 1199px) {
+@media (width <= 1200px) {
   .content {
     padding: 2rem 5%;
   }
 }
 
-@media (max-width: 992px) {
+@media (width <= 992px) {
   .contact {
     min-height: calc(100vh - var(--header-min-height-md) - var(--footer-min-height-md));
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .contact {
     min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
   }
 }
 
-@media (max-width: 576px) {
+@media (width <= 567px) {
   .contact {
     min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
   }

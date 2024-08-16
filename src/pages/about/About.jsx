@@ -8,7 +8,7 @@ import gallery1 from '../../assets/images/mountain-image.jpg';
 import gallery2 from '../../assets/images/image-roof.jpg';
 import gallery3 from '../../assets/images/me-pool.jpg';
 import gallery4 from '../../assets/images/springs-me.jpg';
-import profileImage from '../../assets/images/test.jpg';
+import profileImage from '../../assets/images/profile-picture.jpg';
 
 const About = () => {
   const [weather, setWeather] = useState(null);
@@ -18,7 +18,7 @@ const About = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       const apiKey = '6b5eb5cdf94a499c9f041520240508';
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Orlando&aqi=no`);
+      const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Orlando&aqi=no`);
       const data = await response.json();
       setWeather(data.current);
     };
@@ -96,8 +96,12 @@ const About = () => {
             <div className={styles.introText}>
               <h2>I&apos;m a Front-End Web Developer working remotely from {weather && <span className={styles.weather}>{Math.round(weather.temp_f)}°F Orlando, FL</span>}</h2>
               <p>
-                Over the past 14 years, I&apos;ve worked in various areas of digital design, including front-end development, email, marketing, and app UI/UX. I&apos;m proud to have worn many hats.
-                These days, I focus on leading design at GiveDirectly, a nonprofit that lets donors send money directly to the world&apos;s poorest households.
+                A web developer with over a decade of experience in digital media and front-end development. My focus is on creating efficient, user-friendly websites that make a real difference for
+                businesses and their customers.
+              </p>
+              <p>
+                With a background in Digital Media from the University of Central Florida, I&apos;ve developed expertise in HTML, CSS, JavaScript, WordPress, and React. These days, I specialize in
+                React development, building dynamic, responsive, and beautiful websites with a focus on SEO optimization and speed.
               </p>
             </div>
           </div>
