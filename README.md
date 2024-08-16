@@ -34,16 +34,35 @@ Development tools:
 
 ## 🏗 Project Structure
 
-[Briefly describe your project structure, e.g.:]
+This portfolio project follows modern React development practices with a clean, modular structure:
 
 ```
-src/
-├── components/
-├── pages/
-├── styles/
-├── utils/
-└── App.jsx
+portfolio-project/
+├── public/            # Static assets and entry HTML
+├── src/
+│   ├── assets/        # Fonts and images
+│   ├── components/    # Reusable UI components
+│   ├── data/          # Data files (e.g. projects.js)
+│   ├── layouts/       # Layout components
+│   ├── pages/         # Individual page components
+│   ├── styles/        # Global styles and CSS modules
+│   ├── App.jsx        # Main application component
+│   └── main.jsx       # Application entry point
+├── .eslintrc.js       # ESLint configuration
+├── vite.config.js     # Vite build configuration
+└── package.json       # Project dependencies and scripts
 ```
+
+Key features:
+
+- Organized component structure for maintainability
+- Separation of concerns with dedicated directories for components, pages, and styles
+- Use of CSS modules for scoped styling
+- Data management through a centralized data file
+- Modern build setup with Vite for fast development and optimized production builds
+- Linting with ESLint to ensure code quality and consistency
+
+This structure demonstrates a solid understanding of React application architecture and best practices in front-end development.
 
 ## 🚀 Getting Started
 
@@ -57,9 +76,9 @@ To run this project locally:
 
 Feel free to reach out to me:
 
-- Email: [your-email@example.com]
-- LinkedIn: [Your LinkedIn profile]
-- GitHub: [Your GitHub profile]
+- Email: [steve.pelletier.work@gmail.com]
+- LinkedIn: [https://www.linkedin.com/in/stevendpelletier/](https://www.linkedin.com/in/stevendpelletier/)
+- GitHub: [https://github.com/stevenpelletier90](https://github.com/stevenpelletier90)
 
 ---
 
