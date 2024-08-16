@@ -73,20 +73,20 @@
   background-color: var(--color-darker);
 }
 
-@media (max-width: 1240px) {
+@media (width <= 1240px) {
 }
 
-@media (max-width: 1200px) {
+@media (width <= 1200px) {
 }
 
-@media (max-width: 992px) {
+@media (width <= 992px) {
   .notFound {
     min-height: calc(100vh - var(--header-min-height-md) - var(--footer-min-height-md));
     padding: 1.5rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .notFound {
     min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
     padding: 1rem;
@@ -109,7 +109,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .notFound {
     min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
   }

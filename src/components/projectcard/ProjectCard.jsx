@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWordpress, faPhp, faJs, faCss3Alt, faHtml5, faReact, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase, faCode, faExternalLinkAlt, faCalendarAlt, faUsers, faClock } from '@fortawesome/free-solid-svg-icons';
 import projects from '../../data/projects';
-import styles from './ProjectList.module.css';
+import styles from './ProjectCard.module.css';
 
 const iconMap = {
   WordPress: faWordpress,
@@ -16,11 +17,11 @@ const iconMap = {
   default: faCode,
 };
 
-const ProjectList = () => {
+const ProjectCard = () => {
   return (
-    <div className={styles.projectList}>
-      {projects.map((project) => (
-        <article key={project.id} className={styles.projectCard}>
+    <>
+      {projects.map((project, index) => (
+        <motion.article key={project.id} className={styles.projectCard} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
           <div className={styles.projectImageContainer}>
             <img src={project.image} alt={project.title} className={styles.projectImage} />
           </div>
@@ -42,8 +43,8 @@ const ProjectList = () => {
               </span>
             </div>
             <div className={styles.projectTechnologies}>
-              {project.technologies.map((tech, index) => (
-                <span key={index} className={styles.techTag}>
+              {project.technologies.map((tech, techIndex) => (
+                <span key={techIndex} className={styles.techTag}>
                   <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} />
                   <span className={styles.techText}>{tech}</span>
                 </span>
@@ -52,16 +53,16 @@ const ProjectList = () => {
             <div className={styles.projectHighlights}>
               <h3>Technical Highlights:</h3>
               <ul>
-                {project.technicalHighlights.map((highlight, index) => (
-                  <li key={index}>{highlight}</li>
+                {project.technicalHighlights.map((highlight, highlightIndex) => (
+                  <li key={highlightIndex}>{highlight}</li>
                 ))}
               </ul>
             </div>
             <div className={styles.projectImpact}>
               <h3>Business Impact:</h3>
               <ul>
-                {project.businessImpact.map((impact, index) => (
-                  <li key={index}>{impact}</li>
+                {project.businessImpact.map((impact, impactIndex) => (
+                  <li key={impactIndex}>{impact}</li>
                 ))}
               </ul>
             </div>
@@ -76,10 +77,10 @@ const ProjectList = () => {
               </a>
             </div>
           </div>
-        </article>
+        </motion.article>
       ))}
-    </div>
+    </>
   );
 };
 
-export default ProjectList;
+export default ProjectCard;

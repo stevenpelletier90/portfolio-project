@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import styles from './Portfolio.module.css';
-import ProjectList from '../../components/projectlist/ProjectList';
+import ProjectCard from '../../components/projectcard/ProjectCard';
 
 const Portfolio = () => {
   const titleText = 'My Work.';
@@ -40,6 +40,19 @@ const Portfolio = () => {
         transition: { delay: 1, duration: 0.8 },
       },
     },
+    projectVariants: {
+      hidden: { opacity: 0, y: 50 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.5,
+          type: 'spring',
+          damping: 10,
+          stiffness: 100,
+        },
+      },
+    },
   };
 
   return (
@@ -74,7 +87,9 @@ const Portfolio = () => {
               {subtitleText}
             </motion.p>
           </div>
-          <ProjectList />
+          <motion.div className={styles.projectListContainer} variants={portfolioAnimations.containerVariants} initial='hidden' animate='visible'>
+            <ProjectCard />
+          </motion.div>
         </div>
       </div>
     </>
