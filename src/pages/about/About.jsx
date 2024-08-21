@@ -9,11 +9,18 @@ import gallery2 from '../../assets/images/image-roof.jpg';
 import gallery3 from '../../assets/images/me-pool.jpg';
 import gallery4 from '../../assets/images/springs-me.jpg';
 import profileImage from '../../assets/images/profile-picture.jpg';
+// Import new images for the additional row
+import newImage1 from '../../assets/images/css.svg';
+import newImage2 from '../../assets/images/html.svg';
+import newImage3 from '../../assets/images/js.svg';
+import newImage4 from '../../assets/images/react.svg';
 
 const About = () => {
   const [weather, setWeather] = useState(null);
   const titleText = "I'm Steve.";
   const images = [gallery1, gallery2, gallery3, gallery4];
+  // New array for additional images
+  const newImages = [newImage1, newImage2, newImage3, newImage4];
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -110,6 +117,14 @@ const About = () => {
               <a key={index} data-fancybox='gallery' href={image} className={styles.galleryItem}>
                 <img src={image} alt={`Gallery image ${index + 1}`} />
               </a>
+            ))}
+          </div>
+          {/* New row of images */}
+          <div className={styles.skillsSection}>
+            {newImages.map((image, index) => (
+              <div key={index} className={styles.skillItem}>
+                <img src={image} alt={`Skill image ${index + 1}`} />
+              </div>
             ))}
           </div>
         </motion.div>
