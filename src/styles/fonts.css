@@ -46,13 +46,6 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'GT America Medium';
-  src: url('../assets/fonts/GT-America/gt-america-standard-medium.woff2') format('woff2'), url('../assets/fonts/GT-America/gt-america-standard-medium.woff') format('woff'),
-    url('../assets/fonts/GT-America/gt-america-standard-medium.ttf') format('truetype');
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: 'GT America Bold';
   src: url('../assets/fonts/GT-America/gt-america-standard-bold.woff2') format('woff2'), url('../assets/fonts/GT-America/gt-america-standard-bold.woff') format('woff'),
     url('../assets/fonts/GT-America/gt-america-standard-bold.ttf') format('truetype');

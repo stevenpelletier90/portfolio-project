@@ -5,7 +5,7 @@ import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3Alt, faJs, faReact, faWordpress } from '@fortawesome/free-brands-svg-icons';
-import { faPhotoFilm } from '@fortawesome/free-solid-svg-icons';
+import { faPhotoFilm, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import styles from './About.module.css';
 import gallery1 from '../../assets/images/mountain-image.jpg';
@@ -133,6 +133,9 @@ const About = () => {
                 With a background in Digital Media from the University of Central Florida, I&apos;ve developed expertise in HTML, CSS, JavaScript, WordPress, and React. These days, I specialize in
                 React development, building dynamic, responsive, and beautiful websites with a focus on SEO optimization and speed.
               </p>
+              <a href='/src/assets/docs/steven-pelletier-resume.pdf' target='_blank' rel='noopener noreferrer' className={styles.resumeButton}>
+                <FontAwesomeIcon icon={faFileAlt} /> View My Resume
+              </a>
             </div>
           </div>
           <div className={styles.gallerySection}>
