@@ -1,4 +1,4 @@
-.projectCard {
+.card {
   background: var(--color-darker);
   border-radius: 12px;
   overflow: hidden;
@@ -8,36 +8,27 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.projectCard:hover {
+.card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.projectImageContainer {
-  position: relative;
+.cardMedia {
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
   background-color: var(--color-darkest);
 }
 
-.projectImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.projectInfo {
+.cardContent {
   padding: 2rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.projectTitle {
+.title {
   font-family: var(--font-gt-america-medium);
   font-size: 1.8rem;
   font-weight: 500;
@@ -45,7 +36,7 @@
   color: var(--color-light);
 }
 
-.projectDescription {
+.description {
   font-family: var(--font-gt-america-regular);
   font-size: 1.4rem;
   line-height: 1.6;
@@ -62,14 +53,12 @@
 
 .projectMetadata {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
   margin-bottom: 1rem;
 }
 
 .metadataItem {
-  display: flex;
-  align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: var(--color-light);
 }
 
@@ -106,19 +95,12 @@
 
 .techIcon {
   margin-right: 0.5rem;
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.techText {
-  line-height: 1;
 }
 
 .projectHighlights,
 .projectImpact {
   margin-top: 1rem;
   color: var(--color-light);
-  font-family: var(--font-gt-america-thin);
 }
 
 .projectHighlights h3,
@@ -153,14 +135,9 @@
   margin-top: 1rem;
 }
 
-.projectLink {
+.button {
   flex: 1;
   text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--accent-color);
-  color: var(--color-darkest);
   padding: 0.8rem 1.6rem;
   border-radius: 25px;
   text-decoration: none;
@@ -172,42 +149,56 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.projectLink:hover {
-  background-color: var(--color-light);
+.primaryButton {
+  background-color: var(--accent-color);
   color: var(--color-darkest);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: var(--color-light);
+  border: 2px solid var(--color-light);
+}
+
+.button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.projectLink:active {
+.primaryButton:hover {
+  background-color: var(--color-light);
+  color: var(--color-darkest);
+}
+
+.secondaryButton:hover {
+  background-color: var(--color-light);
+  color: var(--color-darkest);
+}
+
+.button:active {
   transform: translateY(1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.linkIcon {
-  margin-left: 0.75rem;
-  font-size: 1.4rem;
-}
-
 @media (max-width: 768px) {
-  .projectImageContainer {
+  .cardMedia {
     padding-top: 75%; /* 4:3 Aspect Ratio for mobile */
   }
 
-  .projectTitle {
+  .title {
     font-size: 1.6rem;
   }
 
-  .projectDescription {
-    font-size: 1.4rem;
+  .description {
+    font-size: 1.3rem;
   }
 
   .techTag {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 0.4rem 0.8rem;
   }
 
-  .projectLink {
+  .button {
     font-size: 1.2rem;
     padding: 0.7rem 1.4rem;
   }

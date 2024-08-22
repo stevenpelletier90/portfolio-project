@@ -21,62 +21,69 @@ const ProjectCard = () => {
   return (
     <>
       {projects.map((project, index) => (
-        <motion.article key={project.id} className={styles.projectCard} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
-          <div className={styles.projectImageContainer}>
-            <img src={project.image} alt={project.title} className={styles.projectImage} />
-          </div>
-          <div className={styles.projectInfo}>
-            <h2 className={styles.projectTitle}>{project.title}</h2>
-            <p className={styles.projectDescription}>{project.description}</p>
-            <div className={styles.projectMetadata}>
-              <span className={styles.metadataItem}>
-                <FontAwesomeIcon icon={faCalendarAlt} className={styles.metadataIcon} />
-                {project.dateCompleted}
-              </span>
-              <span className={styles.metadataItem}>
-                <FontAwesomeIcon icon={faUsers} className={styles.metadataIcon} />
-                Team of {project.teamSize}
-              </span>
-              <span className={styles.metadataItem}>
-                <FontAwesomeIcon icon={faClock} className={styles.metadataIcon} />
-                {project.duration}
-              </span>
-            </div>
-            <div className={styles.projectTechnologies}>
-              {project.technologies.map((tech, techIndex) => (
-                <span key={techIndex} className={styles.techTag}>
-                  <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} />
-                  <span className={styles.techText}>{tech}</span>
+        <motion.article key={project.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
+          <section className={styles.card} aria-labelledby={`project-title-${project.id}`}>
+            <div className={styles.cardMedia} style={{ backgroundImage: `url(${project.image})` }} title={`Screenshot of ${project.title}`} />
+            <div className={styles.cardContent}>
+              <h2 id={`project-title-${project.id}`} className={styles.title}>{project.title}</h2>
+              <p className={styles.description}>{project.description}</p>
+              <div className={styles.projectMetadata}>
+                <span className={styles.metadataItem}>
+                  <FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true" className={styles.metadataIcon} /> {project.dateCompleted}
                 </span>
-              ))}
-            </div>
-            <div className={styles.projectHighlights}>
-              <h3>Technical Highlights:</h3>
-              <ul>
-                {project.technicalHighlights.map((highlight, highlightIndex) => (
-                  <li key={highlightIndex}>{highlight}</li>
+                <span className={styles.metadataItem}>
+                  <FontAwesomeIcon icon={faUsers} aria-hidden="true" className={styles.metadataIcon} /> Team of {project.teamSize}
+                </span>
+                <span className={styles.metadataItem}>
+                  <FontAwesomeIcon icon={faClock} aria-hidden="true" className={styles.metadataIcon} /> {project.duration}
+                </span>
+              </div>
+              <div className={styles.projectTechnologies}>
+                {project.technologies.map((tech, techIndex) => (
+                  <span key={techIndex} className={styles.techTag}>
+                    <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} />
+                    {tech}
+                  </span>
                 ))}
-              </ul>
+              </div>
+              <div className={styles.projectHighlights}>
+                <h3>Technical Highlights:</h3>
+                <ul>
+                  {project.technicalHighlights.map((highlight, highlightIndex) => (
+                    <li key={highlightIndex}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className={styles.projectImpact}>
+                <h3>Business Impact:</h3>
+                <ul>
+                  {project.businessImpact.map((impact, impactIndex) => (
+                    <li key={impactIndex}>{impact}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className={styles.projectLinks}>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.button} ${styles.primaryButton}`}
+                  aria-label={`View ${project.title} project`}
+                >
+                  <FontAwesomeIcon icon={faExternalLinkAlt} /> View Project
+                </a>
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.button} ${styles.secondaryButton}`}
+                  aria-label={`View GitHub repository for ${project.title}`}
+                >
+                  <FontAwesomeIcon icon={faGithub} /> GitHub Repo
+                </a>
+              </div>
             </div>
-            <div className={styles.projectImpact}>
-              <h3>Business Impact:</h3>
-              <ul>
-                {project.businessImpact.map((impact, impactIndex) => (
-                  <li key={impactIndex}>{impact}</li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles.projectLinks}>
-              <a href={project.link} target='_blank' rel='noopener noreferrer' className={styles.projectLink}>
-                View Project
-                <FontAwesomeIcon icon={faExternalLinkAlt} className={styles.linkIcon} />
-              </a>
-              <a href={project.githubLink} target='_blank' rel='noopener noreferrer' className={styles.projectLink}>
-                GitHub Repo
-                <FontAwesomeIcon icon={faGithub} className={styles.linkIcon} />
-              </a>
-            </div>
-          </div>
+          </section>
         </motion.article>
       ))}
     </>

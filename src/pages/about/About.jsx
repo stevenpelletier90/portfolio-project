@@ -3,24 +3,47 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHtml5, faCss3Alt, faJs, faReact, faWordpress } from '@fortawesome/free-brands-svg-icons';
+import { faPhotoFilm } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import styles from './About.module.css';
 import gallery1 from '../../assets/images/mountain-image.jpg';
 import gallery2 from '../../assets/images/image-roof.jpg';
 import gallery3 from '../../assets/images/me-pool.jpg';
 import gallery4 from '../../assets/images/springs-me.jpg';
 import profileImage from '../../assets/images/profile-picture.jpg';
-// Import new images for the additional row
-import newImage1 from '../../assets/images/css.svg';
-import newImage2 from '../../assets/images/html.svg';
-import newImage3 from '../../assets/images/js.svg';
-import newImage4 from '../../assets/images/react.svg';
+
+const SkillBar = ({ skill, level }) => (
+  <div className={styles.skillBar}>
+    <div className={styles.skillInfo}>
+      <span>{skill}</span>
+      <span>{level}%</span>
+    </div>
+    <div className={styles.skillProgress}>
+      <div className={styles.skillFill} style={{ width: `${level}%` }}></div>
+    </div>
+  </div>
+);
+
+SkillBar.propTypes = {
+  skill: PropTypes.string.isRequired,
+  level: PropTypes.number.isRequired,
+};
 
 const About = () => {
   const [weather, setWeather] = useState(null);
   const titleText = "I'm Steve.";
   const images = [gallery1, gallery2, gallery3, gallery4];
-  // New array for additional images
-  const newImages = [newImage1, newImage2, newImage3, newImage4];
+  const skills = [
+    { name: 'HTML', icon: faHtml5, level: 100 },
+    { name: 'CSS', icon: faCss3Alt, level: 100 },
+    { name: 'JavaScript', icon: faJs, level: 100 },
+    { name: 'React', icon: faReact, level: 100 },
+    { name: 'WordPress', icon: faWordpress, level: 100 },
+    { name: 'Adobe Photoshop', icon: faPhotoFilm, level: 90 },
+    { name: 'Adobe Illustrator', icon: faPhotoFilm, level: 85 },
+  ];
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -119,13 +142,23 @@ const About = () => {
               </a>
             ))}
           </div>
-          {/* New row of images */}
-          <div className={styles.skillsSection}>
-            {newImages.map((image, index) => (
-              <div key={index} className={styles.skillItem}>
-                <img src={image} alt={`Skill image ${index + 1}`} />
-              </div>
-            ))}
+          <div className={styles.skillsContainer}>
+            <div className={styles.skillsInfo}>
+              <h3>My Skills</h3>
+              <p>
+                Throughout my career, I have honed a diverse set of skills that enable me to deliver comprehensive web solutions. From front-end technologies like HTML, CSS, and JavaScript to content
+                management systems like WordPress, I bring a well-rounded skill set to every project. My proficiency in design tools such as Adobe Photoshop and Illustrator complements my development
+                skills, allowing me to bridge the gap between design and implementation seamlessly.
+              </p>
+            </div>
+            <div className={styles.skillsSection}>
+              {skills.map((skill, index) => (
+                <div key={index} className={styles.skillItem}>
+                  <FontAwesomeIcon icon={skill.icon} className={styles.skillIcon} />
+                  <SkillBar skill={skill.name} level={skill.level} />
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
