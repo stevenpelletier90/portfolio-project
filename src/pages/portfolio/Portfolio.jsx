@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import styles from './Portfolio.module.css';
 import ProjectCard from '../../components/projectcard/ProjectCard';
+import projects from '../../data/projects';
 
 const Portfolio = () => {
   const titleText = 'My Work.';
@@ -88,7 +89,9 @@ const Portfolio = () => {
             </motion.p>
           </div>
           <motion.div className={styles.projectListContainer} variants={portfolioAnimations.containerVariants} initial='hidden' animate='visible'>
-            <ProjectCard />
+            {projects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
           </motion.div>
         </div>
       </div>

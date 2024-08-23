@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWordpress, faPhp, faJs, faCss3Alt, faHtml5, faReact, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faDatabase, faCode, faExternalLinkAlt, faCalendarAlt, faUsers, faClock } from '@fortawesome/free-solid-svg-icons';
-import projects from '../../data/projects';
+import { faWordpress, faPhp, faJs, faCss3Alt, faHtml5, faReact, faNodeJs } from '@fortawesome/free-brands-svg-icons';
+import { faDatabase, faCode, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from './ProjectCard.module.css';
 
 const iconMap = {
@@ -11,83 +12,55 @@ const iconMap = {
   JavaScript: faJs,
   CSS3: faCss3Alt,
   HTML5: faHtml5,
-  'REST API': faDatabase,
   React: faReact,
-  MySQL: faDatabase,
+  'Node.js': faNodeJs,
+  MongoDB: faDatabase,
+  Express: faCode,
   default: faCode,
 };
 
-const ProjectCard = () => {
+const ProjectCard = ({ project, index }) => {
   return (
-    <>
-      {projects.map((project, index) => (
-        <motion.article key={project.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
-          <section className={styles.card} aria-labelledby={`project-title-${project.id}`}>
-            <div className={styles.cardMedia} style={{ backgroundImage: `url(${project.image})` }} title={`Screenshot of ${project.title}`} />
-            <div className={styles.cardContent}>
-              <h2 id={`project-title-${project.id}`} className={styles.title}>{project.title}</h2>
-              <p className={styles.description}>{project.description}</p>
-              <div className={styles.projectMetadata}>
-                <span className={styles.metadataItem}>
-                  <FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true" className={styles.metadataIcon} /> {project.dateCompleted}
-                </span>
-                <span className={styles.metadataItem}>
-                  <FontAwesomeIcon icon={faUsers} aria-hidden="true" className={styles.metadataIcon} /> Team of {project.teamSize}
-                </span>
-                <span className={styles.metadataItem}>
-                  <FontAwesomeIcon icon={faClock} aria-hidden="true" className={styles.metadataIcon} /> {project.duration}
-                </span>
-              </div>
-              <div className={styles.projectTechnologies}>
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className={styles.techTag}>
-                    <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} />
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className={styles.projectHighlights}>
-                <h3>Technical Highlights:</h3>
-                <ul>
-                  {project.technicalHighlights.map((highlight, highlightIndex) => (
-                    <li key={highlightIndex}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className={styles.projectImpact}>
-                <h3>Business Impact:</h3>
-                <ul>
-                  {project.businessImpact.map((impact, impactIndex) => (
-                    <li key={impactIndex}>{impact}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className={styles.projectLinks}>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.button} ${styles.primaryButton}`}
-                  aria-label={`View ${project.title} project`}
-                >
-                  <FontAwesomeIcon icon={faExternalLinkAlt} /> View Project
-                </a>
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.button} ${styles.secondaryButton}`}
-                  aria-label={`View GitHub repository for ${project.title}`}
-                >
-                  <FontAwesomeIcon icon={faGithub} /> GitHub Repo
-                </a>
-              </div>
-            </div>
-          </section>
-        </motion.article>
-      ))}
-    </>
+    <motion.article className={styles.card} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
+      <div className={styles.cardMedia} style={{ backgroundImage: `url(${project.image})` }} title={`Screenshot of ${project.title}`} />
+      <div className={styles.cardContent}>
+        <h2 className={styles.title}>{project.title}</h2>
+        <p className={styles.description}>{project.description}</p>
+        <div className={styles.projectTechnologies}>
+          {project.technologies.slice(0, 5).map((tech, techIndex) => (
+            <span key={techIndex} className={styles.techTag}>
+              <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} />
+              {tech}
+            </span>
+          ))}
+          {project.technologies.length > 5 && <span className={styles.techTag}>+{project.technologies.length - 5} more</span>}
+        </div>
+        <div className={styles.projectLinks}>
+          <Link to={`/portfolio/${project.slug}`} className={`${styles.button} ${styles.primaryButton}`}>
+            Learn More
+          </Link>
+          {project.link && (
+            <a href={project.link} target='_blank' rel='noopener noreferrer' className={`${styles.button} ${styles.secondaryButton}`} aria-label={`View ${project.title} project`}>
+              <FontAwesomeIcon icon={faExternalLinkAlt} /> View Project
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
   );
+};
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    image: PropTypes.string.isRequired,
+    link: PropTypes.string,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default ProjectCard;

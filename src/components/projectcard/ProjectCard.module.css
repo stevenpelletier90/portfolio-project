@@ -30,7 +30,7 @@
 
 .title {
   font-family: var(--font-gt-america-medium);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 500;
   margin: 0 0 1.5rem 0;
   color: var(--color-light);
@@ -53,17 +53,30 @@
 
 .projectMetadata {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
 }
 
 .metadataItem {
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
   color: var(--color-light);
+  margin-right: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.metadataItem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .metadataIcon {
-  margin-right: 0.5rem;
+  margin-right: 0.7rem;
+  font-size: 1.4rem;
+  color: var(--accent-color);
 }
 
 .projectTechnologies {
@@ -95,54 +108,59 @@
 
 .techIcon {
   margin-right: 0.5rem;
+  font-size: 1.3rem;
 }
 
 .projectHighlights,
 .projectImpact {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   color: var(--color-light);
 }
 
 .projectHighlights h3,
 .projectImpact h3 {
   font-size: 1.6rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
 }
 
 .projectHighlights ul,
 .projectImpact ul {
   list-style-type: none;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
 }
 
 .projectHighlights li,
 .projectImpact li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   position: relative;
+  font-size: 1.3rem;
+  line-height: 1.6;
 }
 
 .projectHighlights li:before,
 .projectImpact li:before {
   content: '•';
   position: absolute;
-  left: -1rem;
+  left: -1.5rem;
   color: var(--accent-color);
+  font-size: 1.6rem;
 }
 
 .projectLinks {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .button {
   flex: 1;
   text-align: center;
-  padding: 0.8rem 1.6rem;
+  padding: 1rem 1.8rem;
   border-radius: 25px;
   text-decoration: none;
   font-family: var(--font-gt-america-bold);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -186,11 +204,16 @@
   }
 
   .title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .description {
     font-size: 1.3rem;
+  }
+
+  .metadataItem {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .techTag {
@@ -198,8 +221,13 @@
     padding: 0.4rem 0.8rem;
   }
 
-  .button {
+  .projectHighlights li,
+  .projectImpact li {
     font-size: 1.2rem;
-    padding: 0.7rem 1.4rem;
+  }
+
+  .button {
+    font-size: 1.3rem;
+    padding: 0.9rem 1.6rem;
   }
 }

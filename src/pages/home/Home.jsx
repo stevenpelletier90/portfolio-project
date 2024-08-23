@@ -40,6 +40,15 @@ const Home = () => {
         transition: { delay: 1.5, duration: 0.8 },
       },
     },
+
+    buttonVariants: {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { delay: 2, duration: 0.8 },
+      },
+    },
   };
 
   return (
@@ -104,6 +113,19 @@ const Home = () => {
           >
             Front-end Developer / WordPress Expert / Designer
           </motion.p>
+          <motion.div
+            className={styles.buttonContainer}
+            variants={homeAnimations.buttonVariants}
+            initial='hidden'
+            animate='visible'
+          >
+            <a href="/portfolio" className={`${styles.button} ${styles.workButton}`}>
+              My Work
+            </a>
+            <a href="/assets/docs/steven-pelletier-resume.pdf" target="_blank" rel="noopener noreferrer" className={`${styles.button} ${styles.resumeButton}`}>
+              My Resume
+            </a>
+          </motion.div>
         </section>
       </div>
     </>
