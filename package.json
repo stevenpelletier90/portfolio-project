@@ -16,7 +16,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "framer-motion": "^11.3.29",
+    "framer-motion": "^11.3.30",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

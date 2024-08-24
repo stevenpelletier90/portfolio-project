@@ -6,11 +6,9 @@
   --color-medium: #00a8e8;
   --color-light: #ffffff; /* Keeping white for contrast */
 
-  /* Existing variables updated with new palette */
   --primary-color: var(--color-darker);
   --accent-color: var(--color-medium);
 
-  /* Existing variables (unchanged) */
   --standard-transition: all 0.3s ease;
 
   --footer-min-height: 100px;
@@ -28,12 +26,9 @@
   --header-logo-height-sm: 42px;
   --header-logo-height-xs: 40px;
 
-  /* Headings and Paragraphs */
   --heading-font-size: clamp(4rem, 15vw, 20rem);
   --heading-font-size-2: clamp(1.6rem, 3.5vw, 5rem);
   --paragraph-font-size: clamp(1.6rem, 5vw, 1.6rem);
-
-  /* Font families (unchanged) */
 
   --font-acorn-light: 'Acorn Light', sans-serif;
   --font-acorn-regular: 'Acorn Regular', sans-serif;

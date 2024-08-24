@@ -8,21 +8,21 @@
   padding: 2rem;
   box-sizing: border-box;
   background: var(--color-light);
+  color: var(--color-darkest);
 }
 
 .hero {
   text-align: center;
-  margin: 0 0 2rem 0;
   position: relative;
   z-index: 1;
 }
 
 .title {
-  font-size: 4rem; /* Fallback for older browsers */
-  font-size: var(--heading-font-size); /* Keeping your original largest size */
+  font-size: 4rem;
+  font-size: var(--heading-font-size);
   font-family: var(--font-acorn-bold);
   line-height: 1.2;
-  color: var(--color-darker);
+  color: var(--color-darkest);
   margin: 0 0 2rem 0;
 }
 
@@ -35,7 +35,7 @@
   font-family: var(--font-acorn-light);
   font-size: var(--heading-font-size-2);
   color: var(--color-dark);
-  margin: 0 0 2rem 0;
+  margin: 0 0 4rem 0;
   line-height: 1.4;
 }
 
@@ -46,54 +46,53 @@
 }
 
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.75rem 1.5rem;
-  font-family: var(--font-acorn-medium);
-  font-size: 1rem;
+  font-family: 'GT America Bold', var(--font-acorn-medium);
+  font-size: 1.6rem;
   text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  border-radius: 25px;
+  transition: var(--standard-transition);
   text-transform: uppercase;
   letter-spacing: 1px;
+  min-width: 150px;
+  backdrop-filter: blur(30px);
+}
+
+.buttonIcon {
+  margin-right: 0.5rem;
 }
 
 .workButton {
-  background-color: var(--color-accent);
-  color: var(--color-light);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-darkest);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .workButton:hover {
-  background-color: var(--color-accent-dark);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 .resumeButton {
-  background-color: transparent;
-  color: var(--color-accent);
-  border: 2px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-darkest);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .resumeButton:hover {
-  background-color: var(--color-accent);
-  color: var(--color-light);
-}
-
-.content {
-  margin: 0 0 0 0;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.content h2 {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0 0 0 0;
-}
-
-.content p {
-  font-size: 1rem;
-  color: #fff;
-  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
 @media (width <= 1240px) {
@@ -112,20 +111,31 @@
   .home {
     min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
   }
-  
+
   .buttonContainer {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .button {
     width: 100%;
     max-width: 200px;
+    transition: none;
+  }
+
+  .workButton:hover,
+  .resumeButton:hover {
+    transform: none;
   }
 }
 
 @media (width <= 576px) {
   .home {
     min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
+  }
+
+  .button {
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
   }
 }

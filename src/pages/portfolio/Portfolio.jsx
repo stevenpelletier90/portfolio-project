@@ -41,19 +41,6 @@ const Portfolio = () => {
         transition: { delay: 1, duration: 0.8 },
       },
     },
-    projectVariants: {
-      hidden: { opacity: 0, y: 50 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: 0.5,
-          type: 'spring',
-          damping: 10,
-          stiffness: 100,
-        },
-      },
-    },
   };
 
   return (
@@ -88,11 +75,11 @@ const Portfolio = () => {
               {subtitleText}
             </motion.p>
           </div>
-          <motion.div className={styles.projectListContainer} variants={portfolioAnimations.containerVariants} initial='hidden' animate='visible'>
-            {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+          <div className={styles.projectListContainer}>
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </>
