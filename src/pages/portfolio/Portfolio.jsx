@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import styles from './Portfolio.module.css';
 import ProjectCard from '../../components/projectcard/ProjectCard';
 import projects from '../../data/projects';
@@ -7,41 +6,6 @@ import projects from '../../data/projects';
 const Portfolio = () => {
   const titleText = 'My Work.';
   const subtitleText = 'Showcasing My Web Development Projects';
-
-  const portfolioAnimations = {
-    letterVariants: {
-      hidden: { opacity: 0, y: 50 },
-      visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: i * 0.05,
-          duration: 0.5,
-          type: 'spring',
-          damping: 10,
-          stiffness: 100,
-        },
-      }),
-    },
-    containerVariants: {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.05,
-          delayChildren: 0.3,
-        },
-      },
-    },
-    subtitleVariants: {
-      hidden: { opacity: 0, y: 20 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: { delay: 1, duration: 0.8 },
-      },
-    },
-  };
 
   return (
     <>
@@ -64,16 +28,14 @@ const Portfolio = () => {
       <div className={styles.portfolio}>
         <div className={styles.content}>
           <div className={styles.hero}>
-            <motion.h1 className={styles.title} variants={portfolioAnimations.containerVariants} initial='hidden' animate='visible'>
+            <h1 className={styles.title}>
               {titleText.split('').map((char, index) => (
-                <motion.span key={index} variants={portfolioAnimations.letterVariants} custom={index} className={styles.animatedLetter}>
+                <span key={index} className={styles.animatedLetter} style={{animationDelay: `${index * 0.05}s`}}>
                   {char === ' ' ? '\u00A0' : char}
-                </motion.span>
+                </span>
               ))}
-            </motion.h1>
-            <motion.p className={styles.subtitle} variants={portfolioAnimations.subtitleVariants} initial='hidden' animate='visible'>
-              {subtitleText}
-            </motion.p>
+            </h1>
+            <p className={styles.subtitle}>{subtitleText}</p>
           </div>
           <div className={styles.projectListContainer}>
             {projects.map((project) => (

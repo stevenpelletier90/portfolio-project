@@ -1,6 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -14,12 +13,6 @@ const ProjectDetail = () => {
   if (!project) {
     return <div>Project not found</div>;
   }
-
-  const pageAnimations = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
-  };
 
   return (
     <>
@@ -38,7 +31,7 @@ const ProjectDetail = () => {
         <meta name='twitter:description' content={project.description} />
         <meta name='twitter:image' content={project.image} />
       </Helmet>
-      <motion.div className={styles.projectDetail} initial='initial' animate='animate' exit='exit' variants={pageAnimations}>
+      <div className={styles.projectDetail}>
         <div className={styles.hero}>
           <div className={styles.container}>
             <Link to='/portfolio' className={styles.backLink}>
@@ -102,7 +95,7 @@ const ProjectDetail = () => {
             )}
           </div>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };

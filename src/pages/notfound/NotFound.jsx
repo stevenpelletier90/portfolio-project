@@ -1,51 +1,9 @@
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
 
 const NotFound = () => {
   const titleText = '404';
-
-  const notFoundAnimations = {
-    letterVariants: {
-      hidden: { opacity: 0, y: 50 },
-      visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: i * 0.05,
-          duration: 0.5,
-          type: 'spring',
-          damping: 10,
-          stiffness: 100,
-        },
-      }),
-    },
-    containerVariants: {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.05,
-          delayChildren: 0.3,
-        },
-      },
-    },
-    buttonVariants: {
-      initial: { y: 0 },
-      animate: {
-        y: [-5, 5],
-        transition: {
-          y: {
-            repeat: Infinity,
-            repeatType: 'reverse',
-            duration: 1,
-            ease: 'easeInOut',
-          },
-        },
-      },
-    },
-  };
 
   return (
     <>
@@ -56,23 +14,23 @@ const NotFound = () => {
       </Helmet>
       <div className={styles.notFound}>
         <div className={styles.hero}>
-          <motion.h1 className={styles.title} variants={notFoundAnimations.containerVariants} initial='hidden' animate='visible'>
+          <h1 className={styles.title}>
             {titleText.split('').map((char, index) => (
-              <motion.span key={index} variants={notFoundAnimations.letterVariants} custom={index} className={styles.animatedLetter}>
+              <span key={index} className={styles.animatedLetter} style={{animationDelay: `${index * 0.05}s`}}>
                 {char}
-              </motion.span>
+              </span>
             ))}
-          </motion.h1>
+          </h1>
         </div>
-        <motion.div className={styles.content} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
+        <div className={styles.content}>
           <h2 className={styles.subtitle}>Page Not Found</h2>
           <p className={styles.description}>The page you&apos;re looking for doesn&apos;t exist or has been moved.</p>
-          <motion.div variants={notFoundAnimations.buttonVariants} initial='initial' animate='animate'>
+          <div className={styles.buttonContainer}>
             <Link to='/' className={styles.homeLink}>
               Go back to Homepage
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </>
   );

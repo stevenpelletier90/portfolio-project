@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -60,33 +59,6 @@ const About = () => {
     };
   }, []);
 
-  const aboutAnimations = {
-    letterVariants: {
-      hidden: { opacity: 0, y: 50 },
-      visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: i * 0.05,
-          duration: 0.5,
-          type: 'spring',
-          damping: 10,
-          stiffness: 100,
-        },
-      }),
-    },
-    containerVariants: {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.05,
-          delayChildren: 0.3,
-        },
-      },
-    },
-  };
-
   return (
     <>
       <Helmet>
@@ -110,15 +82,15 @@ const About = () => {
       </Helmet>
       <div className={styles.about}>
         <div className={styles.hero}>
-          <motion.h1 className={styles.title} variants={aboutAnimations.containerVariants} initial='hidden' animate='visible'>
+          <h1 className={styles.title}>
             {titleText.split('').map((char, index) => (
-              <motion.span key={index} variants={aboutAnimations.letterVariants} custom={index} className={styles.animatedLetter}>
+              <span key={index} className={styles.animatedLetter} style={{animationDelay: `${index * 0.05}s`}}>
                 {char === ' ' ? '\u00A0' : char}
-              </motion.span>
+              </span>
             ))}
-          </motion.h1>
+          </h1>
         </div>
-        <motion.div className={styles.content} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
+        <div className={styles.content}>
           <div className={styles.introSection}>
             <div className={styles.profileImageContainer}>
               <img src={profileImage} alt='Steve Pelletier' className={styles.profileImage} />
@@ -163,7 +135,7 @@ const About = () => {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </>
   );

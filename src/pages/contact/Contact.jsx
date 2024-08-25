@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
@@ -10,43 +9,6 @@ const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState('');
 
   const titleText = 'Contact.';
-
-  const contactAnimations = {
-    letterVariants: {
-      hidden: { opacity: 0, y: 50 },
-      visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: i * 0.05,
-          duration: 0.5,
-          type: 'spring',
-          damping: 10,
-          stiffness: 100,
-        },
-      }),
-    },
-    containerVariants: {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.05,
-          delayChildren: 0.3,
-        },
-      },
-    },
-    formVariants: {
-      hidden: { opacity: 0, y: 20 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: 0.5,
-        },
-      },
-    },
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -155,40 +117,28 @@ const Contact = () => {
       </Helmet>
       <div className={styles.contact}>
         <div className={styles.hero}>
-          <motion.h1
-            className={styles.title}
-            variants={contactAnimations.containerVariants}
-            initial='hidden'
-            animate='visible'>
+          <h1 className={styles.title}>
             {titleText.split('').map((char, index) => (
-              <motion.span
+              <span
                 key={index}
-                variants={contactAnimations.letterVariants}
-                custom={index}
-                className={styles.animatedLetter}>
+                className={styles.animatedLetter}
+                style={{animationDelay: `${index * 0.05}s`}}>
                 {char === ' ' ? '\u00A0' : char}
-              </motion.span>
+              </span>
             ))}
-          </motion.h1>
+          </h1>
         </div>
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}>
+        <div className={styles.content}>
           <p className={styles.intro}>
             I&apos;m always excited to discuss new web development projects,
             WordPress solutions, or answer any questions about front-end
             development and design. Feel free to reach out!
           </p>
           <div className={styles.formWrapper}>
-            <motion.form
+            <form
               ref={form}
               className={styles.contactForm}
-              onSubmit={handleSubmit}
-              variants={contactAnimations.formVariants}
-              initial='hidden'
-              animate='visible'>
+              onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label htmlFor='from_name'>Name</label>
                 <input
@@ -236,9 +186,9 @@ const Contact = () => {
               {submitMessage && (
                 <p className={styles.submitMessage}>{submitMessage}</p>
               )}
-            </motion.form>
+            </form>
           </div>
-        </motion.div>
+        </div>
       </div>
     </>
   );

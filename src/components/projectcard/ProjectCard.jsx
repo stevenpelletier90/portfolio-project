@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWordpress, faPhp, faJs, faCss3Alt, faHtml5, faReact, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase, faCode, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +20,7 @@ const iconMap = {
 
 const ProjectCard = ({ project, index }) => {
   return (
-    <motion.article className={styles.card} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
+    <article className={styles.card} style={{ animationDelay: `${index * 0.1}s` }}>
       <div className={styles.cardMedia} style={{ backgroundImage: `url(${project.image})` }} title={`Screenshot of ${project.title}`} />
       <div className={styles.cardContent}>
         <h2 className={styles.title}>{project.title}</h2>
@@ -46,7 +45,7 @@ const ProjectCard = ({ project, index }) => {
           )}
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 };
 
