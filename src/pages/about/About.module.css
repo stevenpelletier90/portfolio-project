@@ -138,7 +138,6 @@
 }
 
 .galleryItem:hover {
-  transform: scale(1.05);
 }
 
 .galleryItem img {
@@ -149,18 +148,14 @@
 }
 
 .galleryItem:hover img {
-  transform: scale(1.1);
 }
 
-/* New styles for skillsContainer */
 .skillsContainer {
-  display: flex;
-  gap: 4rem;
   margin-top: 4rem;
 }
 
 .skillsInfo {
-  flex: 1;
+  margin-bottom: 2rem;
 }
 
 .skillsInfo h3 {
@@ -177,67 +172,44 @@
   font-size: clamp(1.6rem, 0.8rem + 1vw, 2rem);
 }
 
-/* Updated styles for skillsSection and skillItem */
-.skillsSection {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+.skillsMarquee {
+  overflow: hidden;
+  width: 100%;
 }
 
-.skillItem {
+.marqueeTrack {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  opacity: 0;
-  transform: translateX(20px);
-  animation: fadeInSkill 0.5s forwards;
+  animation: marquee 30s linear infinite;
 }
 
-@keyframes fadeInSkill {
-  to {
-    opacity: 1;
+@keyframes marquee {
+  0% {
     transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-.skillItem:hover {
-  transform: scale(1.02);
-}
-
-.skillIcon {
-  font-size: 3rem;
-  color: var(--color-darker);
-}
-
-.skillBar {
-  flex: 1;
-}
-
-.skillInfo {
+.skillItem {
+  flex: 0 0 auto;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.skillImage {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.skillName {
+  margin-top: 0.5rem;
   font-size: 1.4rem;
   color: var(--color-darker);
-}
-
-.skillProgress {
-  height: 8px;
-  background-color: #e0e0e0;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skillFill {
-  height: 100%;
-  background-color: var(--color-darker);
-  transition: width 0.5s ease-out;
+  text-align: center;
 }
 
 @media (width <= 1240px) {
@@ -295,6 +267,19 @@
   .skillsSection {
     gap: 1rem;
   }
+
+  .skillItem {
+    margin: 0 1rem;
+  }
+
+  .skillImage {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skillName {
+    font-size: 1.2rem;
+  }
 }
 
 @media (width <= 576px) {
@@ -307,7 +292,15 @@
   }
 
   .skillItem {
-    flex-direction: column;
-    align-items: flex-start;
+    margin: 0 0.5rem;
+  }
+
+  .skillImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skillName {
+    font-size: 1rem;
   }
 }

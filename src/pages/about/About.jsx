@@ -3,9 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHtml5, faCss3Alt, faJs, faReact, faWordpress } from '@fortawesome/free-brands-svg-icons';
-import { faPhotoFilm, faFileAlt } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from './About.module.css';
 import gallery1 from '../../assets/images/mountain-image.jpg';
 import gallery2 from '../../assets/images/image-roof.jpg';
@@ -13,36 +11,40 @@ import gallery3 from '../../assets/images/me-pool.jpg';
 import gallery4 from '../../assets/images/springs-me.jpg';
 import profileImage from '../../assets/images/profile-picture.jpg';
 
-const SkillBar = ({ skill, level }) => (
-  <div className={styles.skillBar}>
-    <div className={styles.skillInfo}>
-      <span>{skill}</span>
-      <span>{level}%</span>
-    </div>
-    <div className={styles.skillProgress}>
-      <div className={styles.skillFill} style={{ width: `${level}%` }}></div>
-    </div>
-  </div>
-);
+// Import skill images
+import htmlLogo from '../../assets/images/html-logo.png';
+import cssLogo from '../../assets/images/css-logo.png';
+import jsLogo from '../../assets/images/JavaScript-logo.png';
+import reactLogo from '../../assets/images/react-logo.png';
+import wordpressLogo from '../../assets/images/wordpress-logo.png';
 
-SkillBar.propTypes = {
-  skill: PropTypes.string.isRequired,
-  level: PropTypes.number.isRequired,
+const SkillsMarquee = () => {
+  const skills = [
+    { name: 'HTML', image: htmlLogo },
+    { name: 'CSS', image: cssLogo },
+    { name: 'JavaScript', image: jsLogo },
+    { name: 'React', image: reactLogo },
+    { name: 'WordPress', image: wordpressLogo },
+  ];
+
+  return (
+    <div className={styles.skillsMarquee}>
+      <div className={styles.marqueeTrack}>
+        {[...skills, ...skills].map((skill, index) => (
+          <div key={index} className={styles.skillItem}>
+            <img src={skill.image} alt={skill.name} className={styles.skillImage} />
+            <span className={styles.skillName}>{skill.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 const About = () => {
   const [weather, setWeather] = useState(null);
   const titleText = "I'm Steve.";
   const images = [gallery1, gallery2, gallery3, gallery4];
-  const skills = [
-    { name: 'HTML', icon: faHtml5, level: 100 },
-    { name: 'CSS', icon: faCss3Alt, level: 100 },
-    { name: 'JavaScript', icon: faJs, level: 100 },
-    { name: 'React', icon: faReact, level: 100 },
-    { name: 'WordPress', icon: faWordpress, level: 100 },
-    { name: 'Adobe Photoshop', icon: faPhotoFilm, level: 90 },
-    { name: 'Adobe Illustrator', icon: faPhotoFilm, level: 85 },
-  ];
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -84,7 +86,7 @@ const About = () => {
         <div className={styles.hero}>
           <h1 className={styles.title}>
             {titleText.split('').map((char, index) => (
-              <span key={index} className={styles.animatedLetter} style={{animationDelay: `${index * 0.05}s`}}>
+              <span key={index} className={styles.animatedLetter} style={{ animationDelay: `${index * 0.05}s` }}>
                 {char === ' ' ? '\u00A0' : char}
               </span>
             ))}
@@ -126,14 +128,7 @@ const About = () => {
                 skills, allowing me to bridge the gap between design and implementation seamlessly.
               </p>
             </div>
-            <div className={styles.skillsSection}>
-              {skills.map((skill, index) => (
-                <div key={index} className={styles.skillItem}>
-                  <FontAwesomeIcon icon={skill.icon} className={styles.skillIcon} />
-                  <SkillBar skill={skill.name} level={skill.level} />
-                </div>
-              ))}
-            </div>
+            <SkillsMarquee />
           </div>
         </div>
       </div>
