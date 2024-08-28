@@ -38,14 +38,12 @@ const Home = () => {
         <section className={styles.hero}>
           <h1 className={styles.title}>
             {titleText.split('').map((char, index) => (
-              <span key={index} className={styles.animatedLetter} style={{animationDelay: `${index * 0.05}s`}}>
+              <span key={index} className={styles.animatedLetter} style={{ animationDelay: `${index * 0.05}s` }}>
                 {char === ' ' ? '\u00A0' : char}
               </span>
             ))}
           </h1>
-          <p className={styles.subtitle}>
-            Front-end Developer / WordPress Expert / Designer
-          </p>
+          <p className={styles.subtitle}>Front-end Developer / WordPress Expert / Designer</p>
           <div className={styles.buttonContainer}>
             <a href='/portfolio' className={`${styles.button} ${styles.workButton}`}>
               <FontAwesomeIcon icon={faBriefcase} className={styles.buttonIcon} /> My Work

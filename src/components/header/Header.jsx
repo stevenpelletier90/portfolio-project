@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import PropTypes from 'prop-types';
-import LogoPNG from '../../assets/images/logo.png';
+import LogoSVG from '../../assets/images/logo.svg';
 import styles from './Header.module.css';
 
 const NavLinks = ({ onClick, isMobile }) => {
@@ -140,7 +140,7 @@ const Header = () => {
       <div className={styles.headerContainer}>
         <div className={styles.logoWrapper}>
           <Link to='/' className={styles.logoLink} itemProp='url'>
-            <img src={LogoPNG} alt='Steven Pelletier' className={styles.logoImage} itemProp='logo' />
+            <img src={LogoSVG} alt='Steven Pelletier' className={styles.logoImage} itemProp='logo' width='50' height='50' />
           </Link>
         </div>
         {isMobile && (

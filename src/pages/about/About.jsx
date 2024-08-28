@@ -11,36 +11,6 @@ import gallery3 from '../../assets/images/me-pool.jpg';
 import gallery4 from '../../assets/images/springs-me.jpg';
 import profileImage from '../../assets/images/profile-picture.jpg';
 
-// Import skill images
-import htmlLogo from '../../assets/images/html-logo.png';
-import cssLogo from '../../assets/images/css-logo.png';
-import jsLogo from '../../assets/images/JavaScript-logo.png';
-import reactLogo from '../../assets/images/react-logo.png';
-import wordpressLogo from '../../assets/images/wordpress-logo.png';
-
-const SkillsMarquee = () => {
-  const skills = [
-    { name: 'HTML', image: htmlLogo },
-    { name: 'CSS', image: cssLogo },
-    { name: 'JavaScript', image: jsLogo },
-    { name: 'React', image: reactLogo },
-    { name: 'WordPress', image: wordpressLogo },
-  ];
-
-  return (
-    <div className={styles.skillsMarquee}>
-      <div className={styles.marqueeTrack}>
-        {[...skills, ...skills].map((skill, index) => (
-          <div key={index} className={styles.skillItem}>
-            <img src={skill.image} alt={skill.name} className={styles.skillImage} />
-            <span className={styles.skillName}>{skill.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const About = () => {
   const [weather, setWeather] = useState(null);
   const titleText = "I'm Steve.";
@@ -128,7 +98,6 @@ const About = () => {
                 skills, allowing me to bridge the gap between design and implementation seamlessly.
               </p>
             </div>
-            <SkillsMarquee />
           </div>
         </div>
       </div>

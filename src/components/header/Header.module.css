@@ -35,7 +35,7 @@
 .logoImage {
   display: block;
   height: var(--header-logo-height);
-  width: auto;
+  width: var(--header-logo-width);
   object-fit: contain;
   transition: var(--transition-duration) all ease;
 }
@@ -209,6 +209,7 @@
 
   .logoImage {
     height: var(--header-logo-height-md);
+    width: var(--header-logo-width-md);
   }
 
   .menuToggle {
@@ -295,6 +296,7 @@
 
   .logoImage {
     height: var(--header-logo-height-sm);
+    width: var(--header-logo-width-sm);
   }
 
   .navLink,
@@ -326,6 +328,7 @@
 
   .logoImage {
     height: var(--header-logo-height-xs);
+    width: var(--header-logo-width-xs);
   }
 
   .navLink,

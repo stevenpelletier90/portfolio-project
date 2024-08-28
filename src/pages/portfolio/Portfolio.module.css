@@ -1,5 +1,4 @@
 .portfolio {
-  min-height: calc(100vh - var(--header-min-height) - var(--footer-min-height));
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -82,7 +81,6 @@
 
 @media (max-width: 992px) {
   .portfolio {
-    min-height: calc(100vh - var(--header-min-height-md) - var(--footer-min-height-md));
     padding: 1.5rem;
   }
 
@@ -93,7 +91,6 @@
 
 @media (max-width: 768px) {
   .portfolio {
-    min-height: calc(100vh - var(--header-min-height-sm) - var(--footer-min-height-sm));
     padding: 1rem;
   }
 
@@ -103,10 +100,6 @@
 }
 
 @media (max-width: 576px) {
-  .portfolio {
-    min-height: calc(100vh - var(--header-min-height-xs) - var(--footer-min-height-xs));
-  }
-
   .projectListContainer {
     grid-template-columns: 1fr;
   }

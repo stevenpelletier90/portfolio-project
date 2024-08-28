@@ -18,29 +18,33 @@ const iconMap = {
   default: faCode,
 };
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project }) => {
   return (
-    <article className={styles.card} style={{ animationDelay: `${index * 0.1}s` }}>
-      <div className={styles.cardMedia} style={{ backgroundImage: `url(${project.image})` }} title={`Screenshot of ${project.title}`} />
+    <article className={styles.card}>
+      <div className={styles.cardMedia} style={{ backgroundImage: `url(${project.image})` }} role='img' aria-label={`Screenshot of ${project.title}`} />
       <div className={styles.cardContent}>
         <h2 className={styles.title}>{project.title}</h2>
         <p className={styles.description}>{project.description}</p>
-        <div className={styles.projectTechnologies}>
+        <ul className={styles.projectTechnologies} aria-label='Technologies used'>
           {project.technologies.slice(0, 5).map((tech, techIndex) => (
-            <span key={techIndex} className={styles.techTag}>
-              <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} />
-              {tech}
-            </span>
+            <li key={techIndex} className={styles.techTag}>
+              <FontAwesomeIcon icon={iconMap[tech] || iconMap.default} className={styles.techIcon} aria-hidden='true' />
+              <span>{tech}</span>
+            </li>
           ))}
-          {project.technologies.length > 5 && <span className={styles.techTag}>+{project.technologies.length - 5} more</span>}
-        </div>
+          {project.technologies.length > 5 && (
+            <li className={styles.techTag}>
+              <span>+{project.technologies.length - 5} more</span>
+            </li>
+          )}
+        </ul>
         <div className={styles.projectLinks}>
           <Link to={`/portfolio/${project.slug}`} className={`${styles.button} ${styles.primaryButton}`}>
             Learn More
           </Link>
           {project.link && (
-            <a href={project.link} target='_blank' rel='noopener noreferrer' className={`${styles.button} ${styles.secondaryButton}`} aria-label={`View ${project.title} project`}>
-              <FontAwesomeIcon icon={faExternalLinkAlt} /> View Project
+            <a href={project.link} target='_blank' rel='noopener noreferrer' className={`${styles.button} ${styles.secondaryButton}`} aria-label={`View ${project.title} project (opens in a new tab)`}>
+              <FontAwesomeIcon icon={faExternalLinkAlt} aria-hidden='true' /> View Project
             </a>
           )}
         </div>
@@ -59,7 +63,6 @@ ProjectCard.propTypes = {
     image: PropTypes.string.isRequired,
     link: PropTypes.string,
   }).isRequired,
-  index: PropTypes.number.isRequired,
 };
 
 export default ProjectCard;
