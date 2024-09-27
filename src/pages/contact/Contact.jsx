@@ -117,16 +117,7 @@ const Contact = () => {
       </Helmet>
       <div className={styles.contact}>
         <div className={styles.hero}>
-          <h1 className={styles.title}>
-            {titleText.split('').map((char, index) => (
-              <span
-                key={index}
-                className={styles.animatedLetter}
-                style={{animationDelay: `${index * 0.05}s`}}>
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
-          </h1>
+          <h1 className={styles.title}>{titleText}</h1>
         </div>
         <div className={styles.content}>
           <p className={styles.intro}>

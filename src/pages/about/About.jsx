@@ -13,7 +13,6 @@ import profileImage from '../../assets/images/profile-picture.jpg';
 
 const About = () => {
   const [weather, setWeather] = useState(null);
-  const titleText = "I'm Steve.";
   const images = [gallery1, gallery2, gallery3, gallery4];
 
   useEffect(() => {
@@ -54,13 +53,7 @@ const About = () => {
       </Helmet>
       <div className={styles.about}>
         <div className={styles.hero}>
-          <h1 className={styles.title}>
-            {titleText.split('').map((char, index) => (
-              <span key={index} className={styles.animatedLetter} style={{ animationDelay: `${index * 0.05}s` }}>
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
-          </h1>
+          <h1 className={styles.title}>I'm Steve.</h1>
         </div>
         <div className={styles.content}>
           <div className={styles.introSection}>

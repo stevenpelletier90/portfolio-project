@@ -34,37 +34,12 @@
   color: var(--color-darkest);
 }
 
-.animatedLetter {
-  display: inline-block;
-  white-space: pre;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .content {
   max-width: 1140px;
   margin: 0 auto;
   padding: 2rem;
   position: relative;
   z-index: 1;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInContent 0.8s forwards 0.5s;
-}
-
-@keyframes fadeInContent {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .introSection {
@@ -200,16 +175,6 @@
 
 .marqueeTrack {
   display: flex;
-  animation: marquee 30s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 
 .skillItem {

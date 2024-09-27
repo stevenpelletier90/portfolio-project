@@ -28,13 +28,7 @@ const Portfolio = () => {
       <div className={styles.portfolio}>
         <div className={styles.content}>
           <div className={styles.hero}>
-            <h1 className={styles.title}>
-              {titleText.split('').map((char, index) => (
-                <span key={index} className={styles.animatedLetter} style={{animationDelay: `${index * 0.05}s`}}>
-                  {char === ' ' ? '\u00A0' : char}
-                </span>
-              ))}
-            </h1>
+            <h1 className={styles.title}>{titleText}</h1>
             <p className={styles.subtitle}>{subtitleText}</p>
           </div>
           <div className={styles.projectListContainer}>

@@ -23,21 +23,6 @@
   margin: 0 0 0 0;
 }
 
-.animatedLetter {
-  display: inline-block;
-  white-space: pre;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .intro {
   font-family: var(--font-acorn-light);
   text-align: center;
@@ -45,16 +30,6 @@
   line-height: 1.6;
   margin: 0 0 5rem 0;
   color: var(--color-darker);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInContent 0.8s forwards 0.5s;
-}
-
-@keyframes fadeInContent {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .content {
@@ -69,16 +44,6 @@
   max-width: 600px;
   margin: 0 auto;
   font-family: var(--font-gt-america-regular);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInForm 0.8s forwards 1s;
-}
-
-@keyframes fadeInForm {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .contactForm {
@@ -143,14 +108,6 @@
   font-size: 1.6rem;
   margin-top: 1rem;
   color: #333333;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
 }
 
 @media (width <= 1240px) {
